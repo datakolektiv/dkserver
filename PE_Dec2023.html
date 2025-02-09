@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>AI Training - Prompt Engineering Workshop</title>
+
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-12CPF31065"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-12CPF31065');
+</script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"><img id="logo" style="width: 30px;" src="DK_Logo_White_NoTitle_25.png" /></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="consulting.html">Consulting</a>
+</li>
+<li>
+  <a href="courses.html">Training</a>
+</li>
+<li>
+  <a href="research.html">Research</a>
+</li>
+<li>
+  <a href="contact.html">Contact</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="media.html">Media</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">AI Training - Prompt Engineering
+Workshop</h1>
+
+</div>
+
+
+<div id="online-4-1-optional-python-sessions-12hours"
+class="section level2">
+<h2>Online 4 (+1 optional Python) sessions ~ 12hours</h2>
+</div>
+<div id="days-slackgithub-support-for-your-project"
+class="section level2">
+<h2>+ 7 days Slack/GitHub support for your project</h2>
+</div>
+<div id="understand-generative-ai-master-openai-chatgpt"
+class="section level2">
+<h2>Understand Generative AI + Master OpenAI ChatGPT</h2>
+<hr />
+<div id="sign-up-via-e-mail-hellodatakolektiv.com"
+class="section level3">
+<h3><strong>&gt;&gt; SIGN UP via e-mail: <a
+href="mailto:hello@datakolektiv.com">hello@datakolektiv.com</a>
+&lt;&lt;</strong></h3>
+<p><img src="PE_banner_2024.png" /></p>
+</div>
+<div id="sign-up-via-e-mail-hellodatakolektiv.com-1"
+class="section level3">
+<h3><strong>&gt;&gt; SIGN UP via e-mail: <a
+href="mailto:hello@datakolektiv.com">hello@datakolektiv.com</a>
+&lt;&lt;</strong></h3>
+</div>
+</div>
+<div id="price-350" class="section level1">
+<h1>Price <strong>350€</strong></h1>
+<hr />
+<div
+id="november-2023-update-following-the-latest-updates-from-openai-the-workshop-now-includes-a-thorough-explanation-on-how-to-create-your-own-gpt-chatbot-or-virtual-assistant-and-use-it-for-your-purposes."
+class="section level3">
+<h3><strong>November 2023 UPDATE: Following the <a
+href="https://www.youtube.com/live/U9mJuUkhUzk?si=-NUuQqADc24XVrCa">latest
+updates from OpenAI</a> the Workshop now includes a thorough explanation
+on how to create your own GPT chatbot or virtual assistant and use it
+for your purposes.</strong></h3>
+</div>
+<div
+id="new-the-workshop-is-now-expanded-to-four-4-sessions-of-3-hours-each-and-includes-a-complete-study-of-the-project-application-or-service-relying-on-generative-ai---fulfilling-the-demands-of-people-with-a-non-tech-background-who-manage-teams-or-work-on-the-product-side."
+class="section level3">
+<h3><strong>NEW: The workshop is now expanded to four (4) sessions of 3
+hours each and includes a complete study of the project application or
+service relying on generative AI - fulfilling the demands of people with
+a non-tech background who manage teams or work on the product
+side.</strong></h3>
+</div>
+<div id="why-should-we-learn-about-prompt-engineering"
+class="section level2">
+<h2><strong>Why should we learn about Prompt Engineering?</strong></h2>
+<ul>
+<li><p>In the <a
+href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai-in-2023-generative-AIs-breakout-year"><em>The
+state of AI in 2023: Generative AI’s breakout year (August
+2023)</em></a> research, <strong>McKinsey &amp; Company</strong> state:
+“… a much smaller portion of respondents report employing software
+engineers associated with AI - a role that was the most commonly
+employed last year - than in the previous survey (<strong>28%</strong>
+in the latest survey, <strong>down from 39%</strong>). Roles in prompt
+engineering have recently emerged, <strong>as the need for this skill
+set grows along with the adoption of generative AI, with 7% of
+respondents from organizations that have adopted AI reporting such
+hiring in the past year.</strong>”</p></li>
+<li><p>Because the Prompt Engineering position will be
+<strong>increasingly prevalent as companies adopt generative AI
+technologies</strong> - and they are adopting them extensively!</p></li>
+<li><p>Because systematic understanding and practice in the use of
+generative AI technologies (like <strong>OpenAI (Chat)GPT</strong> - but
+not limited to it) enable you to seriously save time spent at
+work.</p></li>
+<li><p>Because by understanding and practicing with this technology, you
+gain a good <strong>professional status</strong> in any industry as
+there clearly is no future of work without assistive, generative
+AI.</p></li>
+<li><p>Because <strong>entire new categories of professions</strong>
+will emerge in which people who are fundamentally not developers nor
+software engineers will do jobs that will essentially be very similar -
+<strong>but through prompt engineering.</strong> What is now one
+profession - Prompt Engineer - <strong>will soon be many different
+professions</strong> all involving prompt engineering as a basic
+skill!</p></li>
+<li><p>Because the current OpenAI GPT-3.5 (free ChatGPT model) and GPT-4
+are already in widespread use, and there is already eager anticipation
+for the launch of GPT-5 in 2024 – <strong>so the time to learn is
+now.</strong></p></li>
+</ul>
+</div>
+<div id="how-do-we-work-in-this-workshop" class="section level2">
+<h2><strong>How do we work in this workshop?</strong></h2>
+<ul>
+<li>We meet <strong>online</strong> for four (4) sessions lasting 2.5h -
+3h;</li>
+<li>afterwards, we continue <strong>asynchronously, online, on the Slack
+platform</strong> where a special DataKolektiv channel will be formed
+for this workshop, and where you have completely free, real-time support
+for any questions you may have or use-cases you are testing for the
+following week;</li>
+<li><strong>detailed learning materials and further development in
+Prompt Engineering</strong> will be shared;</li>
+<li>those who opt to do a bit of programming in Python with us,
+<strong>receive three elaborated Notebooks for learning automation of
+Prompt Engineering through the OpenAI GPT class of models</strong>.</li>
+</ul>
+<hr />
+</div>
+<div id="what-will-we-do-in-the-prompt-engineering-workshop"
+class="section level2">
+<h2><strong>What will we do in the Prompt Engineering
+workshop?</strong></h2>
+<p>Do I need to understand this to operate GPT models?</p>
+<p><img src="Full_GPT_architecture.png" /></p>
+<p><strong>No.</strong> In <strong>1/4</strong> of our workshop, we will
+provide a <em>conceptual overview of the principles</em> on which all
+generative models for natural language are based; minimal knowledge of
+mathematics will not be required (but we will guide those interested in
+how to learn such things).</p>
+<p><strong>Understanding these principles is, however, very
+important</strong>: it allows us to understand the limits of such
+technologies, to know what, how, and why we can ask of them, why they
+“hallucinate” and what “hallucinations” are, what are the “emergent
+properties” of such systems, and more - what to expect from such
+technologies, and what not.</p>
+<hr />
+<p>In <strong>2/4</strong> of our work, we completely focus on the
+latest knowledge in the skill of Prompt Engineering:</p>
+<ul>
+<li>How is a good prompt designed in general?</li>
+<li>What are the constituents of every good prompt?</li>
+<li>What types of prompts exist?</li>
+<li>When to use which type of prompt:
+<ul>
+<li>Zero-shot prompting</li>
+<li>One-shot and few-shot prompting</li>
+<li>Chain-of-thought prompting (CoT)</li>
+<li>ReAct Prompting</li>
+<li>Coding prompts</li>
+<li>Analytical prompts: how to make the GPT model your analyst</li>
+</ul></li>
+<li>Basics of cybersecurity in Prompt Engineering: what not to do</li>
+</ul>
+<hr />
+<p><img src="Hallucination_CronenbergStereo.png" /></p>
+<p>What are <strong>hallucinations</strong> in generative AI models, why
+do they occur, and how can we control them?</p>
+<hr />
+<p>In <strong>3/4</strong> of our work, we continue with understanding
+and practicing Prompt Engineering based on the studied techniques, but
+also provide insight into the complete spectrum of OpenAI GPT
+models:</p>
+<ul>
+<li>What models exist?</li>
+<li>What is each OpenAI GPT model used for? Which task should be
+specifically solved with which model, and how?</li>
+<li>What are the ways to access these models, and at what prices? How to
+estimate the cost of a specific request? What are tokens and how do GPT
+models tokenize our prompts?</li>
+<li>Direct examples: prompts, tokenization (we will explain what this
+is), and costs.</li>
+</ul>
+<hr />
+<p>In <strong>4/4</strong> of our work (optional; for listeners who are
+attracted to Python programming, although we advise everyone to
+participate in this part of the workshop) we move on to working with the
+OpenAI API through the Python programming language:</p>
+<ul>
+<li>Minimal knowledge of Python for automating Prompt Engineering
+through the OpenAI API;</li>
+<li>OpenAI API endpoints, tokenization, costs, moderation endpoint (very
+important for developing 3rd party apps);</li>
+<li>Automated Prompt Engineering through Python;</li>
+<li>Accepting results in JSON, XML, CSV formats;</li>
+<li>Fine-tuning GPT models for text classification;</li>
+<li>Working with embeddings from OpenAI models;</li>
+<li>Overview of resources for further learning;</li>
+<li>Overview of the complete architecture for developing AI apps and
+services (LangChain, Prompt Engineering, Vector Databases).</li>
+</ul>
+<hr />
+</div>
+<div id="limited-number-of-participants-and-personalization"
+class="section level2">
+<h2><strong>[!!!]Limited number of participants and
+personalization</strong></h2>
+<p>DataKolektiv <strong>never</strong> works with a large number of
+participants, because during participation in our workshops and courses
+<strong>we personalize the work according to your needs!</strong> This
+guarantees that you will spend enough time working with us and be able
+to discuss <strong>all the questions you have</strong> live and online,
+exchange ideas with us - and even code together with us if you wish in
+pair-programming sessions. <strong>After completing the workshop, we
+will be available for free online consultations for the next 7
+days</strong>, for any questions you may have or use-cases you would
+like to test. <strong>DataKolektiv has been working for years with this
+methodology, and it allows us to devote ourselves maximally and
+precisely to each participant according to their needs!</strong></p>
+<hr />
+</div>
+<div id="lecturer" class="section level2">
+<h2><strong>Lecturer</strong></h2>
+<p><img src="gsm_round_175px.png" /></p>
+<p><a href="https://www.linkedin.com/in/gmilovanovic/">Dr. Goran S.
+Milovanović</a>. Studied mathematics, philosophy, and psychology at the
+University of Belgrade and New York University (NYU), with a PhD in
+psychology. A programmer since the age of ten, he published his first
+scientific paper at the age of twenty, collaborated with top cognitive
+scientists, and published works cited in <em>Stevens’ Handbook of
+Experimental Psychology</em>. Has years of experience in analytics and
+machine learning on some of the world’s largest data systems (Wikidata),
+and is a member of program committees for European Data Science
+conferences. As an individual consultant, in collaboration with American
+educational startups and DataKolektiv, he has educated dozens of people
+in Data Science and ML. Besides leading DataKolektiv, he is the Lead
+Data Scientist at Smartocto, where he heads the LABS team and develops
+all ML and AI projects in this Dutch-Serbian startup.</p>
+<hr />
+</div>
+<div id="what-do-we-take-home" class="section level2">
+<h2><strong>What do we take home?</strong></h2>
+<p>Complete materials from the workshop will be shared, including:</p>
+<ul>
+<li>Introduction to generative AI (slide-deck)</li>
+<li>Conceptual overview of GPT model architecture (slide-deck)</li>
+<li>Review of all existing OpenAI GPT models, explanations of their
+applications (HTML Notebook)</li>
+<li>Detailed Prompt Engineering training (practically everything that is
+currently known about Prompt Engineering, HTML Notebook)</li>
+<li>A complete overview of existing online resources for better Prompt
+Engineering, from introductory to expert materials (HTML Notebook)</li>
+<li>Complete Reading and Video lists for further work and learning (HTML
+Notebook)</li>
+<li>Three complete Python Notebooks for training in working with the
+OpenAI API (Jupyter Notebook)</li>
+</ul>
+<hr />
+</div>
+<div id="price" class="section level2">
+<h2><strong>Price</strong></h2>
+<p>The price is <strong>only 350€</strong> with a <strong>10% discount
+for groups of participants</strong> (two or more applications already
+form a group of participants; mention in your applications that you are
+applying as a group).</p>
+<hr />
+</div>
+<div id="registration" class="section level2">
+<h2><strong>Registration</strong></h2>
+<div id="sign-up-via-e-mail-hellodatakolektiv.com-2"
+class="section level3">
+<h3><strong>&gt;&gt; SIGN UP via e-mail: <a
+href="mailto:hello@datakolektiv.com">hello@datakolektiv.com</a>
+&lt;&lt;</strong></h3>
+</div>
+</div>
+</div>
+
+<hr>
+<p style="text-align:center;">
+  <img src="DK_Logo_White_150.png">
+</p>
+<p style="font-size:13px;text-align:center;">
+  <b>Contact: </b><a href = "mailto: hello@datakolektiv.com">hello@datakolektiv.com</a><br><br><a href="https://github.com/datakolektiv"><img src="github.png"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/company/datakolektiv/"><img src="linkedin.png"></a>
+</p>
+<p style="font-size:11px;text-align:center;"><b>Impressum</b><br>
+<b>Goran Milovanovic PR Data Kolektiv</b>, Breza 4/7, ČUKARICA-BEOGRAD<br>11000 Beograd, Republika Srbija, ID(APR):64498339, TIN:109890695
+</p>
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

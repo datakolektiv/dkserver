@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>DATA SCIENCE SUMMER SCHOOL 2022</title>
+
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-12CPF31065"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-12CPF31065');
+</script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"><img id="logo" style="width: 30px;" src="DK_Logo_White_NoTitle_25.png" /></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="consulting.html">Consulting</a>
+</li>
+<li>
+  <a href="courses.html">Training</a>
+</li>
+<li>
+  <a href="research.html">Research</a>
+</li>
+<li>
+  <a href="contact.html">Contact</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="media.html">Media</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">DATA SCIENCE SUMMER SCHOOL 2022</h1>
+
+</div>
+
+
+<div id="uvod-u-mašinsko-učenje-u-r" class="section level1">
+<h1><strong>Uvod u mašinsko učenje u R</strong></h1>
+<div id="jun-4---30-2022-startit-centar-beograd-online"
+class="section level2">
+<h2>Jun 4 - 30, 2022, Startit centar, Beograd + Online</h2>
+<hr />
+<div id="prijavite-se-na-hellodatakolektiv.com" class="section level3">
+<h3><strong>&gt;&gt; Prijavite se na: <a
+href="mailto:hello@datakolektiv.com">hello@datakolektiv.com</a>
+&lt;&lt;</strong></h3>
+<p><img src="startit_add_dsss2022_800.jpeg" /></p>
+<p><br></p>
+</div>
+</div>
+<div id="jedini-kurs-ovog-tipa-u-srbiji" class="section level2">
+<h2><strong>Jedini kurs ovog tipa u Srbiji</strong></h2>
+<p>Koliko mi znamo, ovaj specijalizovan kurs u programskom jeziku R za
+mašinsko učenje <strong>je jedinstven u Srbiji</strong>.</p>
+<p>Zašto baš R? U odnosu na druge programske jezike, ima daleko bogatiji
+ekosistem paketa za ML, i često ćete biti u situaciji kada će vam upravo
+ova znanja dati kompetitivnu prednost da rešite problem na kome radite
+brže i bolje nego u nekom drugom jeziku.</p>
+</div>
+<div id="mldata-science-su-beskrajno-interesantni-i-perspektivni"
+class="section level2">
+<h2><strong>ML/Data Science su beskrajno interesantni (i
+perspektivni)</strong></h2>
+<p>U ovim oblastima su dobri oni koji to mogu da zavole, koji imaju
+inženjerski pristup, radoznali su i žele da oslobode vrednost ogromnih
+količina podataka koje svet kreira svakodnevno. ML je već centralni deo
+mnogih proizvoda u IT-u uopšte, a odavno je sržni deo analitike
+poslovanja.</p>
+<p>Jaz između potražnje i ponude kvalifikovanog kadra na tržištu je
+<strong>neverovatan</strong>, što ovo čini <strong>izvrsnim karijernim
+izborom</strong>. Pogledajte koliko vremena ostaju otvoreni oglasi za
+poslove u Data Science pa ćete moći da zamislite koliko je teško naći
+pravu osobu za tako nešto.</p>
+</div>
+<div id="devet-9-šest-6-preostalih-mesta-prijavite-se-na-vreme"
+class="section level2">
+<h2><strong><del>Devet (9)</del> Šest (6) preostalih mesta — prijavite
+se na vreme</strong></h2>
+<p>Kako bi obuka bila kvalitetna odlučili smo se na mali broj polaznika
+— 12. Trenutno je preostalo <strong>još 9 mesta</strong>, ukoliko je ovo
+prava stvar za vas javite se čim pre, najkasnije do 31. maja 2022.</p>
+</div>
+<div id="više-o-kursu-šta-će-se-raditi" class="section level2">
+<h2><strong>Više o kursu — šta će se raditi</strong></h2>
+<p>Kompletna obuka za ML metode nadgledanog učenja (Supervised Learning)
+u programskom jeziku R, sa studijama poslovnih problema u oblasti
+predikcije cena tržišta nekretnina, predikcije popularnosti online
+sadržaja, predikcije odlaska korisnika (churn) i drugih. Od linearne
+regresije do XGBoost modela - poznatog kao “švajcarski nož” za
+prediktivnu analitiku, pobednika mnogih Kaggle takmičenja, sve u jednom
+od danas deset najpopularnih programskih jezika, R - de facto lingua
+franca globalne Data Science zajednice. Trening je kompletno orijentisan
+na praksu pružajući “hands on knowledge” od strane Gorana S.
+Milovanovića, Senior Data Scientist i Phd sa više od dvadeset godina
+iskustva u modeliranju podataka, mašinskom učenju i edukaciji.</p>
+</div>
+<div id="cena" class="section level2">
+<h2><strong>Cena</strong></h2>
+<p>Cena je <strong>samo 1000€</strong> u dinarskoj protivvrednosti,
+moguće je plaćanje preko računa, i od strane fizičkih lica (uz mogućnost
+plaćanja u 2 rate).</p>
+</div>
+<div id="program" class="section level2">
+<h2><strong>PROGRAM</strong></h2>
+<div id="nedelja-1." class="section level3">
+<h3>Nedelja 1.</h3>
+<ul>
+<li><strong>Uživo: subota, 4. jun, 09:00 - 18:00, Startit centar,
+Beograd</strong>
+<ul>
+<li>09:00 - 12:30. Uvod u programski jezik R: strukture podataka,
+data.frame klasa, I/O operacije, kontrola toka.</li>
+<li>14:30 - 18:00. {tidyverse} pristup R programiranju: paketi {dplyr} i
+{tidyr} za rukovanje podacima.</li>
+</ul></li>
+<li><strong>Asinhrono (Slack, GitHub), ponedeljak, 6. jun - petak, 10.
+Jun</strong>
+<ul>
+<li>Vizuelizacija podataka u industrijskom standardu {ggplot2}.</li>
+<li>Čišćenje i transformacija podataka (data wrangling) u paketima
+{stringr}, {dplyr} i {tidyr}. Eksplorativna analiza podataka (EDA) u
+R.</li>
+</ul></li>
+</ul>
+</div>
+<div id="nedelja-2." class="section level3">
+<h3>Nedelja 2.</h3>
+<ul>
+<li><strong>Uživo: subota, 11. jun, 09:00 - 18:00, Startit centar,
+Beograd</strong>
+<ul>
+<li>09:00 - 12:30. Linearna i multipla linearna regresija.</li>
+<li>14:30 - 18:00. Binomijalna logistička i multinomijalna logistička
+regresija za klasifikacione probleme.</li>
+</ul></li>
+<li><strong>Asinhrono (Slack, GitHub), ponedeljak, 13. jun - petak, 17.
+Jun</strong>
+<ul>
+<li>Studija slučaja 1: Predikcija odlaska korisnika (churn
+prediction).</li>
+<li>Problem ovefita 1: Regularizacija linearnog regresionog modela.</li>
+</ul></li>
+</ul>
+</div>
+<div id="nedelja-3." class="section level3">
+<h3>Nedelja 3.</h3>
+<ul>
+<li><strong>Uživo: subota, 18. jun, 09:00 - 18:00, Startit centar,
+Beograd</strong>
+<ul>
+<li>09:00 - 12:30. Kros-validacija i regularizacija klasifikacionih
+modela; selekcija klasifikacionih modela (ROC analiza).</li>
+<li>14:30 - 18:00. Drveta odlučivanja (CART: Decision Tree Model).</li>
+</ul></li>
+<li><strong>Asinhrono (Slack, GitHub), ponedeljak, 20. jun - petak, 24.
+Jun</strong>
+<ul>
+<li>Studija slučaja 2: Predikcija cena nekretnina.</li>
+<li>Problem ovefita 2: Kros-validacija regresionih modela.</li>
+</ul></li>
+</ul>
+</div>
+<div id="nedelja-4." class="section level3">
+<h3>Nedelja 4.</h3>
+<ul>
+<li><strong>Uživo: subota, 25. jun, 09:00 - 18:00, Startit centar,
+Beograd</strong>
+<ul>
+<li>09:00 - 12:30. Random Forest model za regresione i klasifikacione
+probleme</li>
+<li>14:30 - 18:00. Gradient Boosting: XGBoost model za regresione i
+klasifikacione probleme</li>
+</ul></li>
+<li><strong>Asinhrono (Slack, GitHub), ponedeljak, 27. jun - četvrtak,
+30. Jun</strong>
+<ul>
+<li>Studija slučaja 3: Predikcija popularnosti online sadržaja.</li>
+<li>Studija slučaja 4: Kompletan tok pripreme podataka i fine-tuning
+XGBoost modela za regresione i klasifikacione probleme.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="mentor" class="section level2">
+<h2>MENTOR</h2>
+<p><img src="gsm_round_175px.png" /></p>
+<p><a href="https://www.linkedin.com/in/gmilovanovic/">Goran S.
+Milovanović, PhD</a>, je Senior Data Scientist i Phd sa velikim
+iskustvom u fundamentalnim i primenjenim istraživanjima, istraživanjima
+tržišta, oblasti pronalaženja informacija (<em>Information
+Retrieval</em>), izveštavanju, vizuelizaciji, i vođenju Data Science
+projekata. Goran vodi malu konsultantsku kuću <a
+href="http://www.datakolektiv.com/">DataKolektiv</a>, u Beogradu,
+Srbija, od 2017, a od januara 2022. radi kao Senior Data Scientist u
+sprsko-holandskom startapu <a
+href="https://smartocto.com/">Smartocto</a> na problemima predikcije
+popularnosti online sadržaja.</p>
+<p><strong>Kontak:</strong> <a
+href="mailto:%20goran.milovanovic@datakolektiv.com">goran.milovanovic@datakolektiv.com</a></p>
+<p><strong>DataKolektiv Tech Stack</strong></p>
+<p>Uglavnom <a href="https://www.r-project.org/about.html">R</a>, ali
+ceo zoo bi obuhvatao:</p>
+<ul>
+<li>R:
+<ul>
+<li><a href="https://shiny.rstudio.com/">Shiny</a>, <a
+href="https://rmarkdown.rstudio.com/">R Markdown</a> - ili <a
+href="https://rstudio.com/products/shiny/download-server/">Open Source
+Shiny Server</a>, ili ravno u produkciju sa <a
+href="https://github.com/ThinkR-open/golem">golem</a> skalirajući
+sisteme sa <a href="https://www.shinyproxy.io/">ShinyProxy</a> i <a
+href="https://www.docker.com/">Docker</a>;</li>
+<li>vizuelizacije: <a href="https://ggplot2.tidyverse.org/">ggplot2</a>,
+<a href="https://hafen.github.io/rbokeh/">Bokeh</a>, <a
+href="https://plotly.com/">Plotly</a>, <a
+href="https://datastorm-open.github.io/visNetwork/">VisNetwork</a>, <a
+href="https://igraph.org/r/">igraph</a>;</li>
+<li>Backend/ML: <a
+href="https://cran.r-project.org/web/packages/data.table/vignettes/datatable-intro.html">data.table</a>,
+<a href="http://text2vec.org/">text2vec</a>, <a
+href="https://github.com/TaddyLab/maptpx">maptpx</a>, <a
+href="https://github.com/jkrijthe/Rtsne">Rtsne</a>, <a
+href="https://xgboost.readthedocs.io/en/latest/">XGBoost</a>, <a
+href="https://cran.r-project.org/web/packages/Matrix/index.html">Matrix</a>,
+<a
+href="https://cran.r-project.org/web/packages/mclust/vignettes/mclust.html">mclust</a>,
+<a href="https://glmnet.stanford.edu/articles/glmnet.html">glmnet</a> i
+verovatno još mnogo toga;<br />
+</li>
+</ul></li>
+<li><a href="https://www.python.org/">Python</a>/<a
+href="https://spark.apache.org/docs/latest/api/python/index.html">Pyspark</a>/<a
+href="https://spark.apache.org/">Apache Spark</a>, <a
+href="https://scikit-learn.org/stable/">scikit-learn</a> <a
+href="https://hadoop.apache.org/">Hadoop</a>/<a
+href="https://en.wikipedia.org/wiki/Apache_Hive">HiveQL</a>, and <a
+href="https://mariadb.org/">MariaDB</a>, <a
+href="https://www.postgresql.org/">PostgreSQL</a>;</li>
+<li><a href="https://www.w3.org/XML/">XML</a>, <a
+href="https://www.json.org/json-en.html">JSON</a>, <a
+href="https://www.w3.org/RDF/">RDF</a>;</li>
+<li>naravno da je <a href="https://rstudio.com/">RStudio</a> naš
+omiljeni IDE, ali i <a href="https://code.visualstudio.com/">Visual
+Studio Code</a> kao i ponekad <a
+href="https://www.jetbrains.com/pycharm/">PyCharm</a>.</li>
+</ul>
+<p><strong>GitHub</strong></p>
+<ul>
+<li>Goran: <a
+href="https://github.com/GoranMilovanovic">github.com/GoranMilovanovic</a></li>
+<li>DataKolektiv: <a
+href="https://github.com/datakolektiv">github.com/datakolektiv</a></li>
+</ul>
+</div>
+</div>
+
+<hr>
+<p style="text-align:center;">
+  <img src="DK_Logo_White_150.png">
+</p>
+<p style="font-size:13px;text-align:center;">
+  <b>Contact: </b><a href = "mailto: hello@datakolektiv.com">hello@datakolektiv.com</a><br><br><a href="https://github.com/datakolektiv"><img src="github.png"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/company/datakolektiv/"><img src="linkedin.png"></a>
+</p>
+<p style="font-size:11px;text-align:center;"><b>Impressum</b><br>
+<b>Goran Milovanovic PR Data Kolektiv</b>, Breza 4/7, ČUKARICA-BEOGRAD<br>11000 Beograd, Republika Srbija, ID(APR):64498339, TIN:109890695
+</p>
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Media</title>
+
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-12CPF31065"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-12CPF31065');
+</script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"><img id="logo" style="width: 30px;" src="DK_Logo_White_NoTitle_25.png" /></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="consulting.html">Consulting</a>
+</li>
+<li>
+  <a href="courses.html">Training</a>
+</li>
+<li>
+  <a href="research.html">Research</a>
+</li>
+<li>
+  <a href="contact.html">Contact</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="media.html">Media</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Media</h1>
+
+</div>
+
+
+<p><a href="https://github.com/datakolektiv"><img
+src="github.png" /></a> <a
+href="https://www.linkedin.com/company/datakolektiv/"><img
+src="linkedin.png" /></a></p>
+<p><strong>A selection of our keynotes, talks, interviews w. <a
+href="https://www.linkedin.com/in/gmilovanovic/">Goran S.
+Milovanović</a>, public debates, workshops, and meetups.</strong></p>
+<div
+id="data-science-conference-europe-2023-decoding-ai-landscape-business-market-trends-and-risks-goran-s.-milovanovic-dsc-europe-23"
+class="section level3">
+<h3>Data Science Conference Europe 2023: Decoding AI Landscape:
+Business, Market Trends, and Risks | Goran S. Milovanovic | DSC Europe
+23</h3>
+<p><a href="https://youtu.be/ufpYgTnSbPE?si=t9__1meQInZk4uaq"><img
+src="dsceurope2023.png" /></a></p>
+<p>It was already the third day, November 23, since the beginning and
+the conference was, naturally, losing momentum. It was an evening slot
+and the audience was already dispersing. I had been coughing since
+before November 20, which would extend to two months of coughing, and I
+barely had the strength to speak. I was well prepared, had excellent
+slides, but nothing else promised that I could deliver a good speech.
+For the most part, I read the first half of the speech. Again, I don’t
+remember ever having such a good, so fulfilling and meaningful
+discussion with the audience as I did during this speech, which lasted
+all 27 minutes of this keynote I gave at the Data Science Conference
+Europe 2023. Thank you everyone! Finally, the video: <a
+href="https://youtu.be/ufpYgTnSbPE?si=t9__1meQInZk4uaq">Decoding AI
+Landscape: Business, Market Trends, and Risks | DSC Europe 23</a>.</p>
+<ul>
+<li>Slides: <a href="DSCEurope2023_Milovanovic_Keynote.pdf">Decoding AI
+Landscape: Business, Market Trends, and Risks</a></li>
+</ul>
+<hr />
+</div>
+<div
+id="webit-2023-exploring-the-potential-of-generative-ai-in-digital-analytics-webit-summer-edition-2023-recording"
+class="section level3">
+<h3>Webit 2023: Exploring the Potential of Generative AI in Digital
+Analytics (Webit Summer Edition 2023 recording)</h3>
+<p><a href="https://www.youtube.com/watch?v=D1jvrcXsYdM"><img
+src="webit2023.jpeg" /></a></p>
+<p>My keynote <em>Exploring the Potential of Generative AI in Digital
+Analytics</em>, Webit Summer Edition 2023, Sofia, NDK. At the kind
+invitation of the organizers of the Webit 2023 conference in Sofia, I
+discussed the potential of modern generative AI systems in digital
+analytics. I pay special attention to understanding the process of data
+generation in a user ecosystem that is all supported by generative AI
+systems directly or through applications, as well as the significance of
+synthetic data in analytics. My conclusions suggest that the study of a
+mix of synthetic and human data is inevitable in the future of digital
+analytics, and that it doesn’t necessarily compromise analytical
+conclusions as much as is commonly thought today.</p>
+<ul>
+<li><p>Slides: <a href="Milovanovic_Webit2023.pdf">Exploring the
+Potential of Generative AI in Digital Analytics</a></p></li>
+<li><p>A full synopsis of the Keynote is available on LinkedIn: <a
+href="https://www.linkedin.com/pulse/exploring-potential-generative-ai-digital-analytics-milovanovi%2525C4%252587-phd%3FtrackingId=15J3WXu0QkuEhDXofK0MQg%253D%253D/?trackingId=15J3WXu0QkuEhDXofK0MQg%3D%3D">Exploring
+the Potential of Generative AI in Digital Analytics</a></p></li>
+</ul>
+<hr />
+</div>
+<div
+id="ml-on-open-data-the-wikidata-case-data-science-conference-2021-recording"
+class="section level3">
+<h3>ML on Open Data: The Wikidata Case (Data Science Conference 2021
+recording)</h3>
+<p><a href="https://youtu.be/zg8cjXwg9SM?si=1otVyfHW-PLMakJ_"><img
+src="DSCEurope2021.png" /></a></p>
+<p><a href="https://datasciconference.com/"
+class="uri">https://datasciconference.com/</a></p>
+<p>The last in a series of extensive, overview talks on data analytics
+infrastructure and machine learning with Wikidata, held in the fall of
+2021 at the Data Science Conference Europe 2021, Belgrade, Crown Plaza.
+At that time, the Wikidata Analytics system was fully developed and
+provided Big Data analytics and machine learning on a vast amount of
+data, primarily through its leading application, the Wikidata Concepts
+Monitor. After five years with Wikidata (2017 - 2023), leading projects
+completely from the back-end, through ML and analytics, to Shiny in
+production independently, I decided it was time for the next step in my
+professional career, and that the intriguing and challenging Wikidata
+analytics should be left to the younger generation. This makes that talk
+very dear to my memory.</p>
+<hr />
+</div>
+<div
+id="serbia-prepares-for-the-ai-revolution-a-undp-blog-post-on-the-conference-co-organized-by-machinery-and-undp-serbia-belgrade-april-28-2023"
+class="section level3">
+<h3>Serbia prepares for the AI revolution, [a UNDP blog post on the
+conference co-organized by <a
+href="https://www.linkedin.com/company/machineryorg">MACHINERY</a> and
+<a href="https://www.linkedin.com/company/undp-serbia/">UNDP Serbia</a>,
+Belgrade, April 28, 2023]</h3>
+<ol start="23" style="list-style-type: lower-alpha">
+<li><a href="https://www.linkedin.com/in/smarkovic/">Slobodan Marković,
+Digital Advisor at UNDP</a></li>
+</ol>
+<p><a
+href="https://www.undp.org/serbia/blog/serbia-prepares-ai-revolution"><img
+src="undp_machinery2023.jpg" /></a></p>
+<ul>
+<li>Slides: <a href="machineryundpslides.pdf">Generative AI in Action:
+Use Cases, Risks, and Future Prospects</a></li>
+</ul>
+<hr />
+</div>
+<div
+id="machine-learning-conference-palić-2023-intro-to-ml-workshop-repo"
+class="section level3">
+<h3>Machine Learning Conference Palić 2023 :: Intro to ML Workshop
+[repo]</h3>
+<ol start="23" style="list-style-type: lower-alpha">
+<li><a href="https://www.linkedin.com/in/ilijalazarevic/">Ilija
+Lazarević</a> and <a
+href="https://www.linkedin.com/in/alegzndr/">Aleksandar
+Cvetković</a></li>
+</ol>
+<p><a href="https://github.com/datakolektiv/MLConference_Palic2023"><img
+src="dkmlconfpalic2023.png" /></a></p>
+<p>On the zeroth day of the ML Conference Palić 2023, held at <a
+href="https://www.linkedin.com/company/inspira-hub/">InspiraHub</a> in
+Subotica, the DataKolektiv team conducted a one-day, free workshop on
+Introduction to Machine Learning for a selected group of
+participants.</p>
+<ul>
+<li>Historical and conceptual introduction to Machine Learning (Goran S.
+Milovanović)</li>
+<li>Introduction to vector arithmetic and data management in Python
+(Numpy, Pandas) (Ilija Lazarević)</li>
+<li>Optimization of Linear Regression model (Goran S. Milovanović)</li>
+<li>Linear associator and Backpropagation algorithm for a single-layer
+neural network (Aleksandar Cvetković).</li>
+</ul>
+<p>The participants were provided with a comprehensive overview of the
+mathematical foundations of all the discussed models and Python code,
+enabling them to independently optimize these elementary models used in
+ML from scratch.</p>
+<hr />
+</div>
+<div
+id="behavioural-decision-theory-in-r-data-science-conference-europe-2022-tech-tutorial-recording"
+class="section level3">
+<h3>Behavioural Decision Theory in R (Data Science Conference Europe
+2022, Tech Tutorial, recording)</h3>
+<p><a href="https://www.youtube.com/watch?v=1KZ8-B9uswo"><img
+src="dscEurope2022_BDTTechTutorial.png" /></a></p>
+<p>My <strong>2022 Tech Tutorial on Behavioural Decision Theory and Risk
+Estimation in R</strong>, encompassing SSE and MLE procedures to
+estimate parametric models of Expected Utility and Cumulative Prospect
+Theory. I have put some effort here to drive attention to the fact that
+(a) not just any data can be appropriately modelled by (b) just any math
+model (c) without taking into account the measurement procedures and the
+structure of the experimental design (that are, btw, formally one and
+the same thing) - a fact of which behavioural scientists are (or should
+be) quite aware of, but which is not in turn recognised and respected by
+practitioners in Data Science and Machine Learning in general. The
+respective GitHub repo is here: <a
+href="https://github.com/datakolektiv/DSC2022_BDT"
+class="uri">https://github.com/datakolektiv/DSC2022_BDT</a></p>
+<hr />
+</div>
+<div
+id="learning-data-science-through-education-bootcamps-mooc-aka-panel-with-3-amigos-data-science-conference-2022-recording"
+class="section level3">
+<h3>Learning Data Science through Education, Bootcamps &amp; MOOC (aka
+Panel with 3 amigos) (Data Science Conference 2022 recording)</h3>
+<ol start="23" style="list-style-type: lower-alpha">
+<li>prof. <a
+href="https://www.linkedin.com/in/branko-urosevic-18586998/">Branko
+Urošević, Program Director, Master in Computational Finance (MCF),
+School of Computing, Union University</a> and <a
+href="https://www.linkedin.com/in/aleksandar-linc-djordjevic/">Aleksandar
+Linc, Managing Director at Data Science Conference</a></li>
+</ol>
+<p><a href="https://youtu.be/uiLoLXG_0sc?si=IXuLMSe4NGSbZZr1"><img
+src="DSCEurope2022_panel.png" /></a></p>
+<p>Branko, Aleks, and I discussing education in Data Science: the worth
+of a decent academic background and PhD studies (or not), how to
+approach your training and education plan, where science stops and
+engineering begins, and many other important things in one’s path
+towards entering the market in Data Science, Machine Learning, and
+AI.</p>
+<hr />
+</div>
+<div
+id="the-lindy-effect-in-wikidata-user-retention-wikidatacon-2021-recording"
+class="section level3">
+<h3>The Lindy Effect in Wikidata User Retention (WikidataCon 2021
+recording)</h3>
+<ol start="23" style="list-style-type: lower-alpha">
+<li><a
+href="https://www.linkedin.com/in/martin-gerlach-164259139/">Martin
+Gerlach</a> and <a href="https://www.linkedin.com/in/jandittrich/">Jan
+Dittrich</a></li>
+</ol>
+<p>Jan, Martin, and I discussing a question of the distribution of <a
+href="https://www.wikidata.org/wiki/Wikidata:Main_Page">Wikidata</a>
+user retention time in <a
+href="https://www.wikidata.org/wiki/Wikidata:WikidataCon_2021">WikidataCon
+2021</a>. A classic churn problem approached from an elaborated
+perspective, testing the Power Law distributions on large data sets +
+some XGBoost predictive churn modeling. The code repo might be useful
+for anyone interested in churn problems in practice and MLE of Power
+Laws from empirical data.</p>
+<p><a href="https://youtu.be/GSS5kviMkTM?si=7F4luByy0wMm7ioz"><img
+src="WikidataCon2021.png" /></a></p>
+<ul>
+<li><p>Code repo for this talk: <a
+href="https://github.com/wikimedia/analytics-wmde-WD-WikidataAdHocAnalytics/tree/master/WD_UserRetention">WD_UserRetention</a></p></li>
+<li><p>Slides: <a
+href="https://github.com/wikimedia/analytics-wmde-WD-WikidataAdHocAnalytics/blob/master/WD_UserRetention/_presentation/Lindy%20Effect%20and%20User%20Retention%20on%20Wikidata.pdf">The
+Lindy Effect in Wikidata User Retention</a></p></li>
+</ul>
+<hr />
+</div>
+<div id="semantic-web-in-r-for-data-scientists-erum-2020-workshop"
+class="section level3">
+<h3>Semantic Web in R for Data Scientists (eRum 2020 Workshop)</h3>
+<p><a href="https://github.com/datakolektiv/e-Rum2020_SemanticWeb"><img
+src="eRum2020.png" /></a></p>
+<p>This workshop offered a hands-on approach to Semantic Web
+technologies in R by exemplifying how to work with <a
+href="https://www.wikidata.org/wiki/Wikidata:Main_Page">Wikidata</a> and
+<a href="https://www.dbpedia.org/">DBpedia</a> in different ways. We
+start simple (using the Wikidata API, for example) and then slowly
+progress towards more advanced topics (e.g. your first SPARQL query from
+R and why it is not as complicated as people think, matching your data
+set against Wikidata entities in order to enrich it, and similar). I
+will provide an introduction to Semantic Web on a conceptual level only
+so that participants will not need a full understanding of the related
+technical standards (RDF, different serializations, etc) to follow
+through. Finally, weshow how to process the Wikidata JSON dump from R
+for those interested to play big games with R and the Semantic Web. We
+might be playing around with some interactive graph visualizations
+during the workshop.</p>
+<ul>
+<li>Workshop repo: <a
+href="https://github.com/datakolektiv/e-Rum2020_SemanticWeb">WD_UserRetention</a></li>
+</ul>
+<hr />
+</div>
+<div
+id="heapcon-light-2020-structured-semantic-knowledge-in-data-science-hipkon-lajt-2020-recording-in-serbian"
+class="section level3">
+<h3>Heapcon Light 2020: Structured semantic knowledge in Data Science
+(Hipkon Lajt 2020 recording, in Serbian)</h3>
+<p><a href="https://youtu.be/qq4BC5c1lt8?si=6IgnvTxrPeYfGnS2"><img
+src="HipkonLajt2020.png" /></a></p>
+<p>My talk on <a href="https://heapcon.io/2023/">Hipcon Light 2022</a>,
+Belgrade, Dorćol Platz, 2020: <em>Structured semantic knowledge in Data
+Science</em>. Structured semantic knowledge, represented by semantic
+graphs like the Wikidata or DBpedia knowledge bases, represents not only
+the most advanced foundation for the development of future artificial
+intelligence systems, but also an excellent support for enriching
+existing data sets in everyday work. Our topic is the mapping between
+two worlds: the world of knowledge representation through a semantic
+graph and the typical tabular data frame representation found in data
+science and the realm of relational databases. Our narrative will start
+from a standard tabular representation in the R and Python programming
+languages, which we will then transform into a semantic graph, and
+subsequently return to a well-known format through the SPARQL language.
+Along the way, we will discuss the RDF standard for semantic data and
+its well-known serializations (RDF/XML, Turtle, JSON-LD, N-triples,
+N-quads…). Anyone who believed that the Semantic Web was an exotic idea
+for the privileged (and who needs it?) will be able to relax: it’s much
+easier and more accessible than you think.</p>
+<hr />
+</div>
+<div
+id="wikidatacon-2019-wikidata-statistics-what-where-and-how-wikidatacon-2019-recording"
+class="section level3">
+<h3>WikidataCon 2019: Wikidata Statistics: What, Where, and How
+(WikidataCon 2019 recording)</h3>
+<p><a href="https://youtu.be/H1hUPmYgZQU?si=yh8t7qhM4N2GSa-M"><img
+src="WikidataCon2019.png" /></a></p>
+<p>My talk on <a
+href="https://www.wikidata.org/wiki/Wikidata:WikidataCon_2019">WikidataCon
+2019</a>, Berlin, Urania Berlin, 2019: <em>Wikidata Statistics: What,
+Where, and How</em>. I am presenting the whole Analytics and ML
+infrastructure for <a
+href="https://github.com/wikimedia/analytics-wmde-WD-WikidataAnalytics">Wikidata
+Analytics</a> - a rather rare opportunity to get acquitted with how
+things in Data Science/ML/AI are done on (really!) Big Data from Data
+Engineering and ML to running Data Products in production.</p>
+<ul>
+<li>Slides: <a
+href="https://commons.wikimedia.org/wiki/File:GoranSMilovanovic_WikidataCon_2019.pdf">GoranSMilovanovic
+WikidataCon 2019</a></li>
+</ul>
+<hr />
+</div>
+<div
+id="milanor-meetup-june-25-2019-information-retrieval-semantic-web-technologies-and-wikidata-from-r-microsoft-house"
+class="section level3">
+<h3>MilanoR Meetup, June 25, 2019: Information Retrieval: Semantic Web
+Technologies and Wikidata from R, Microsoft House</h3>
+<p><a href="https://github.com/datakolektiv/MilanoR2019"><img
+src="MilanoR2019.png" /></a></p>
+<ol start="23" style="list-style-type: lower-alpha">
+<li><a href="https://www.linkedin.com/in/mikejohnpage/">Mike
+Page</a></li>
+</ol>
+<p>Material from my MilanoR Meetup, June 25, 2019, Milano, Microsoft
+House.</p>
+<p>These notebooks are essenaitly educational material:</p>
+<ul>
+<li><p>The notebook A. Wikidata From R summarizes several methods to
+access Wikidata (and Wikipedia content) from R and provides a very light
+introduction to SPARQL;</p></li>
+<li><p>Notebooks 00 - 08 present a workflow where Wikidata is accessed
+from R to perform several typical tasks in Information
+Retrieval;</p></li>
+<li><p>The <a
+href="https://github.com/MikeJohnPage/newsrivr">newsrivr</a> package to
+interface the NEWSRIVER API from R, developed by Michael John Page, is
+also introduced in this Meetup.</p></li>
+<li><p>Code Repo: <a
+href="https://github.com/datakolektiv/MilanoR2019">MilanoR2019</a></p></li>
+</ul>
+<hr />
+</div>
+<div
+id="erum-2018-wikidata-concepts-monitor-r-in-action-across-big-data-erum-2018-recording"
+class="section level3">
+<h3>eRum 2018: Wikidata Concepts Monitor: R in action across Big Data
+(eRum 2018 recording)</h3>
+<p><a href="https://youtu.be/R4dKyqNyrL8?si=pLKa-uYeNiVwW4cH"><img
+src="eRum2018.png" /></a></p>
+<p>My talk on <a href="https://2018.erum.io/">European R Users Meeting
+eRum2018, Budapest</a>, Budapest, Akvarium Klub, May 16, 2018:
+<em>Wikidata Concepts Monitor: R in action across Big Data</em>.
+Wikidata, one of the most prominent Wikimedia projects nowadays,
+presents a formal ontology that adheres to the RDF standard. All
+Wikimedia projects (Wikipedia, Wiktionary, Wikivoyage, Wikimedia
+commons, etc) can reach out to and make use of Wikidata by relying on
+the features of MediaWiki and Wikibase. Currently, more than 800
+Wikimedia websites - some of which are found among the most dynamic
+places online at all - maintain a client-side Wikidata usage tracking.
+The resulting data sets present a challenging Big Data problem that
+calls for SQL transfers to Hadoop via Apache Sqoop, massive HiveQL ETL
+operations and data wrangling in R just in order to enable for the
+tracking and analytics of individual Wikidata item usage statistics
+across the Wikimedia projects.</p>
+<p>The Wikidata Concepts Monitor (WDCM) system was developed in R to
+orchestrate various technologies (SPARQL to access Wikidata, SQL, Apache
+Sqoop, Hive, and Spark) in order to provide for Wikidata usage tracking
+and analytics. The WDCM then takes a step beyond and performs machine
+learning (LDA, t-SNE) across the matrices that encompass Wikidata items
+and Wikimedia projects in order to gain insight into the distributive
+semantics (i.e. topic models, dimensionality reduction for similarity
+maps) of Wikidata usage. The system encompasses a set of Shiny
+dashboards where the results of the WDCM statistical machinery are
+visualized and tools for analytical work provided in order to help the
+understanding of the utterly complex social and behavioral phenomenon of
+Wikidata usage.</p>
+<ul>
+<li><p><a
+href="https://wikitech.wikimedia.org/wiki/Wikidata_Concepts_Monitor">Wikitech:
+Wikidata Concepts Monitor (WDCM). The WDCM technical
+documentation</a></p></li>
+<li><p><a
+href="https://www.wikidata.org/wiki/Wikidata:Wikidata_Concepts_Monitor">Wikidata
+Concepts Monitor (WDCM the WDCM Wikidata wiki project page</a></p></li>
+<li><p>Slides: <a
+href="https://commons.wikimedia.org/wiki/File:GMilovanovic_eRum2018.pdf">Wikidata
+Concepts Monitor: R in action across Big Data</a></p></li>
+</ul>
+<hr />
+</div>
+<div
+id="wikidata-and-the-next-generation-of-the-web-goran-milovanović-data-scientist-for-wikidata-interview-w.-filip-milenković-filip-never-stops-september-13-2020"
+class="section level3">
+<h3>Wikidata and the Next Generation of the Web – Goran Milovanović,
+Data Scientist for Wikidata (Interview) w. <a
+href="https://www.linkedin.com/in/philipmilenkovic/">Filip
+Milenković</a> [Filip Never Stops, September 13, 2020]</h3>
+<p><a
+href="https://filipneverstops.com/2020/09/13/interview-wikidata-and-the-next-generation-of-the-web-goran-milovanovic-data-scientist-for-wikidata/"><img
+src="filipinterviewInstitutZaFiziku.jpg" /></a></p>
+<p>An interview by Filip Milenković, 2020, on everything from
+Computational Cognitive Science, Semantic Web, to Wikidata and AI.
+“<em>Goran Milovanović is one of the most knowledgeable people I know. I
+invited him to lecture about Data Science potential in the public
+administration at the policy conference that I organized five years ago.
+We remained friends and I enjoy talking with him about everything that
+has ever popped in the back of my head. Interested in early Internet
+development and the role of RAND in immediate postwar America? No
+worries, he’ll speak 15 minutes about it in one breath.</em>”</p>
+<hr />
+</div>
+<div
+id="from-the-life-of-wikidata-w.-wikimedia-foundation-wikimedia-blog-29-january-2018"
+class="section level3">
+<h3>From the Life of Wikidata w. Wikimedia Foundation [Wikimedia blog,
+29 January 2018]</h3>
+<p><a
+href="https://wikimediafoundation.org/news/2018/01/29/from-the-life-of-wikidata/"><img
+src="wikimediablog2018.jpg" /></a></p>
+<p>A 2018. blog on Wikidata Analytics for <a
+href="https://wikimediafoundation.org/">Wikimedia Foundation</a>. <a
+href="https://www.wikidata.org/wiki/Wikidata:Main_Page">Wikidata</a> is
+the central knowledge repository in the Wikimedia universe that now
+encompasses more than 300 free, online encyclopedias, and more than 800
+projects in total. Why would anyone devoted to the representation of the
+sum of knowledge—which by its complexity must encompass different
+perspectives, interpretations, points of view—need a central repository
+like that? Simply because knowledge demands grounding in both logical
+and empirical truths, a set of constraints that define the limits of its
+power and usage.</p>
+<hr />
+</div>
+<div
+id="introduction-to-r-course-playlist-w.-startit-in-serbian-2016---2022"
+class="section level3">
+<h3>Introduction to R Course [Playlist] w. Startit [In Serbian, 2016 -
+2022]</h3>
+<p><a
+href="https://www.youtube.com/playlist?list=PLji_uE7buef9bugJOnn4vwef_rz46rQeh"><img
+src="UvodR_startit_banner.jpg" /></a></p>
+<p>In the fall of 2022, we finally recorded my course “Introduction to
+R” in Serbian in collaboration with Startit Center. <a
+href="https://www.linkedin.com/in/kovacbranko/">Branko Kovač</a> and I
+have been volunteering to teach this course since around 2015. Later on,
+I tried to align it more with the tidyverse approach to R programming
+and continued to volunteer to maintain it at Startit Centers in Belgrade
+and Novi Sad. This is a basic introduction to R programming for absolute
+beginners which covers the fundamentals of programming, emphasizes
+functional programming in R, and provides an introduction to tidyverse
+through ggplot2 and dplyr.</p>
+<hr />
+</div>
+<div
+id="smartocto-what-is-the-role-of-data-teams-w.-netokracija-in-serbian-2023"
+class="section level3">
+<h3>Smartocto: What is the role of ‘data’ teams? w. <a
+href="https://www.netokracija.rs/">Netokracija</a> [In Serbian,
+2023]</h3>
+<p><a href="https://youtu.be/HuJ7L7qyHH4?si=1aRS4ym6i9dXC2HW"><img
+src="Netokracija2023.png" /></a></p>
+<ol start="23" style="list-style-type: lower-alpha">
+<li><a href="https://www.linkedin.com/in/ilijasusa/">Ilija Šuša, CDO
+&amp; Co-founder, Smartocto</a></li>
+</ol>
+<p>An old friend of mine from the early days of the Serbian Data Science
+scene, my CDO Ilija Šuša, a mathematician and Data Engineer, and I, were
+guests at Netokracija’s podcast focused mainly on the organization of
+data teams in companies and startups.</p>
+<hr />
+</div>
+<div
+id="job-market-in-data-science-ml-and-ai-in-2023-what-changes-can-we-expect-w.-inspira-hub-subotica-ml-conference-palić-in-serbian-2023"
+class="section level3">
+<h3>Job market in Data Science, ML, and AI in 2023: What changes can we
+expect? w. <a href="https://https://inspirahub.rs/en/home/">Inspira
+Hub</a>, Subotica, <a href="https://ml-conference.rs/">ML Conference
+Palić</a> [In Serbian, 2023]</h3>
+<p><a href="https://youtu.be/noU0vVxzTsU?si=4Y1wpdruFS0BYq96"><img
+src="InspiraHub2023Meetup.png" /></a></p>
+<ol start="23" style="list-style-type: lower-alpha">
+<li><a href="https://www.linkedin.com/in/kovacbranko/">Branko Kovač</a>
+and <a href="https://www.linkedin.com/in/nemanja-cukaric/">Nemanja
+Čukarić</a></li>
+</ol>
+<p>Branko, Nemanja, and I discussed the issues of the job market in Data
+Science, machine learning, and AI in 2023, focusing on changes caused by
+the economic crisis as much as the upcoming generative AI technologies
+in software engineering. We were hosted by the Inspira Hub in Subotica
+as part of the Machine Learning Conference Palić 2023. The discussion
+took place after <a href="https://www.linkedin.com/in/alegzndr/">Aleks
+Cvetković</a>, <a
+href="https://www.linkedin.com/in/ilijalazarevic/">Ilija Lazarević</a>,
+and I held the “Day Zero” of the conference, providing a free <a
+href="https://github.com/datakolektiv/MLConference_Palic2023">Introduction
+to Machine Learning</a> training in the Python programming language for
+a selected group of participants.</p>
+<hr />
+</div>
+<div
+id="datasciencemeetup---r-and-shiny-in-information-retreival-startit-centar-belgrade-2016-in-serbian"
+class="section level3">
+<h3>DataScienceMeetup - R and Shiny in Information Retreival, Startit
+Centar, Belgrade, 2016 [In Serbian]</h3>
+<p><a href="https://youtu.be/d3loi6ylUEI?si=d2_T2fSuLHacWeBY"><img
+src="StartitMeetup2016.png" /></a></p>
+<p>A recording from one of the first meet-ups in the Belgrade Data
+Science scene from 2016, Startit Center Belgrade, Savska 5. I spoke
+about the application of R and RStudio Shiny in the development of a
+complete Information Retrieval system and the use of the LDA topic model
+in analysis, prediction, and text classification in the IG Concepts
+system, which I developed for the international foundation
+DiploFoundation in 2015.</p>
+<hr />
+</div>
+<div
+id="methods-of-distributional-semantics-in-r-startit-centar-belgrade-2016-in-serbian"
+class="section level3">
+<h3>Methods of distributional semantics in R, Startit Centar, Belgrade,
+2016 [In Serbian]</h3>
+<p><a href="https://youtu.be/lCt4GNHGZkE?si=8n1DS-GYp8wRpOI6"><img
+src="StartitMeetup2016_InfRetreival.png" /></a></p>
+<p>Another early recording from the Belgrade Data Science scene
+beginnings in Startit Center Belgrade, Savska 5, 2016. I spoke about the
+methods of distributional semantics in R, focusing on Latent Dirichlet
+Allocation.</p>
+<hr />
+</div>
+<div id="artificial-intelligence-talas-column-for-talas-in-serbian"
+class="section level3">
+<h3>Artificial intelligence, <a
+href="https://talas.rs/category/vestacka-inteligencija/">Talas</a>,
+[Column for Talas, In Serbian]</h3>
+<p><a href="https://talas.rs/category/vestacka-inteligencija/"><img
+src="talasAI.png" /></a></p>
+<p>My column dedicated to AI on the media portal Talas, in Serbian.</p>
+<hr />
+</div>
+<div
+id="artificial-intelligence-wont-replace-you-but-the-one-who-knows-how-to-use-it-will-interview-netokracija-16.-3.-2023.-in-serbian"
+class="section level3">
+<h3>Artificial intelligence won’t replace you, but the one who knows how
+to use it will (interview), Netokracija, 16. 3. 2023. [In Serbian]</h3>
+<p><a
+href="https://www.netokracija.rs/gpt-4-goran-milovanovic-205469"><img
+src="NetokracijaIntervju2023.png" alt="Netokracija2023.png" /></a></p>
+<p>Anstasija Uspenski interviewed me for Netokracija on the most recent
+develepments in Generative AI and the consequences for the job
+market.</p>
+<hr />
+</div>
+<div
+id="analytics-of-digital-lives-interview-vreme-magazine-1421-29.-march-2018.-in-serbian"
+class="section level3">
+<h3>Analytics of digital lives (interview), VREME magazine 1421, 29.
+March 2018. [In Serbian]</h3>
+<p><a
+href="https://www.vreme.com/svet/analitika-digitalnih-zivota/"><img
+src="MilovanovicVreme.jpg" /></a></p>
+<p>The Belgrade weekly magazine VREME interviewed me on the <a
+href="https://en.wikipedia.org/wiki/Facebook%E2%80%93Cambridge_Analytica_data_scandal">Facebook–Cambridge
+Analytica data scandal</a>.</p>
+<hr />
+</div>
+<div id="internet-governance-forum-identifying-the-impact"
+class="section level3">
+<h3>Internet Governance Forum: Identifying the Impact</h3>
+<p><a
+href="https://mcit.gov.eg/Upcont/Documents/Publications_21112019000_Internet_Governance_Forum_Identifying_the_Impact.pdf"><img
+src="igf_identifying_the_impact.png" /></a>.</p>
+<p>Published by <a
+href="https://www.diplomacy.edu/">DiploFoundation</a></p>
+<p>In Partnership with:</p>
+<ul>
+<li><a href="https://www.att.com/">AT&amp;T</a></li>
+<li><a href="https://mcit.gov.eg/">Arab Republic of Egypt Ministry of
+Communications and Information Technology</a></li>
+<li><a href="">Commonwealth Internet Governance Forum</a></li>
+</ul>
+<p>As a Research Manager and Statistical Analyst for the
+<strong>Internet Governance Forum: Identifying the Impact (ISBN
+978-99932-53-21-1)</strong> evaluation study, I have orchestrated a
+methodological and mainly quantitative approach to better understand the
+effects of this central diplomatic process in the Internet Governance
+arena.</p>
+<hr />
+</div>
+<div
+id="book-promotion-thinking-fast-and-slow-by-daniel-kahneman-skc-delfi-bookstore-belgrade-26.-june-2015-in-serbian"
+class="section level3">
+<h3>Book promotion “Thinking, Fast and Slow” by Daniel Kahneman, SKC,
+Delfi Bookstore, Belgrade, 26. June 2015 [In Serbian]</h3>
+<p><a href="https://www.youtube.com/watch?v=89XEjqh7Wb0"><img
+src="skc_kahneman_delfi_2015.jpg" /></a></p>
+<p>Book promotion “Thinking, Fast and Slow” by Daniel Kahneman, SKC,
+Delfi Bookstore, Belgrade, 26. June 2015.</p>
+<p>Speakers about the book included Dr. Goran S. Milovanović, Data
+Scientist, Dr. Dušan Pavlović, professor at the Faculty of Political
+Sciences in Belgrade, and Ana Imširović Đorđević, the translator.</p>
+<hr />
+</div>
+<div id="academic-publications-researchgate" class="section level3">
+<h3>Academic publications [ResearchGate]</h3>
+<p><a
+href="https://www.researchgate.net/profile/Goran-Milovanovic-2"><img
+src="academic.png" /></a></p>
+<p><a
+href="https://scholar.google.com/citations?user=YG1sO_EAAAAJ&amp;hl=en">Google
+Scholar</a></p>
+<p>I couldn’t find a better place to host my past academic work (1993 -
+2013, mainly) than <a
+href="https://www.researchgate.net/profile/Goran-Milovanovic-2">ResearchGate</a>.
+Excluding books, most of the work should be available in full-text. As
+an academic researcher in Cognitive Science, I was mainly focused on
+Categorization and Concept Learning, Semantics, Causality, and Decision
+Theory.</p>
+</div>
+
+<hr>
+<p style="text-align:center;">
+  <img src="DK_Logo_White_150.png">
+</p>
+<p style="font-size:13px;text-align:center;">
+  <b>Contact: </b><a href = "mailto: hello@datakolektiv.com">hello@datakolektiv.com</a><br><br><a href="https://github.com/datakolektiv"><img src="github.png"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/company/datakolektiv/"><img src="linkedin.png"></a>
+</p>
+<p style="font-size:11px;text-align:center;"><b>Impressum</b><br>
+<b>Goran Milovanovic PR Data Kolektiv</b>, Breza 4/7, ČUKARICA-BEOGRAD<br>11000 Beograd, Republika Srbija, ID(APR):64498339, TIN:109890695
+</p>
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

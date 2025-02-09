@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>DATA SCIENCE SESSIONS VOL. 05</title>
+
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-12CPF31065"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-12CPF31065');
+</script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"><img id="logo" style="width: 30px;" src="DK_Logo_White_NoTitle_25.png" /></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="consulting.html">Consulting</a>
+</li>
+<li>
+  <a href="courses.html">Training</a>
+</li>
+<li>
+  <a href="research.html">Research</a>
+</li>
+<li>
+  <a href="contact.html">Contact</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="media.html">Media</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">DATA SCIENCE SESSIONS VOL. 05</h1>
+
+</div>
+
+
+<div id="uvod-u-python-za-data-science" class="section level1">
+<h1><strong>Uvod u Python za Data Science</strong></h1>
+<div id="oktobar---30.-decembar-2023-beograd" class="section level2">
+<h2>7. oktobar - 30. decembar 2023, Beograd</h2>
+</div>
+<div id="online-slackgithub" class="section level2">
+<h2>+ Online: Slack/GitHub</h2>
+<p><a href="https://github.com/datakolektiv/dss03python2023"><img
+src="github.png" /></a></p>
+<hr />
+<div id="prijavite-se-na-hellodatakolektiv.com" class="section level3">
+<h3><strong>&gt;&gt; Prijavite se na: <a
+href="mailto:hello@datakolektiv.com">hello@datakolektiv.com</a>
+&lt;&lt;</strong></h3>
+<p><img src="dss_vol05_python2023_500px.png" /></p>
+</div>
+<div id="prijavite-se-na-hellodatakolektiv.com-1"
+class="section level3">
+<h3><strong>&gt;&gt; Prijavite se na: <a
+href="mailto:hello@datakolektiv.com">hello@datakolektiv.com</a>
+&lt;&lt;</strong></h3>
+</div>
+<div id="cena" class="section level3">
+<h3>Cena</h3>
+<p>Kurs se sastoji iz tri (3) modula. Polaznici mogu da pohađaju zasebno
+bilo koji od modula u zavisnosti od procene njihove prethodne
+pripremljenosti. Za pohađanje dva modula ili uzimanje kursa u celini
+postoje popusti:</p>
+<ul>
+<li>Modul 1. Uvod u Python za Data Science: EUR 500</li>
+<li>Modul 2. Python analitičar podataka: EUR 600</li>
+<li>Modul 3: Mašinsko učenje u Python: EUR 700</li>
+<li>Modul 1 + Modul 2: <strong>EUR 1000</strong> (u dve rate za fizička
+lica)</li>
+<li>Modul 1 + Modul 2 + Modul 3: <strong>EUR 1500</strong> (u tri rate
+za fizička lica)</li>
+</ul>
+<p><img src="DSS05_2023_srb.png" /></p>
+<hr />
+</div>
+<div
+id="klasičan-data-science-kurs-datakolektiv-koji-su-pohađale-već-generacije-polaznika-sada-i-u-programskom-jeziku-python.-desetina-polaznika-od-2020-godine-postavilo-je-sa-nama-solidne-u-osnove-u-data-science-i-mašinskom-učenju-ubrajajući-dvanest-stručnjaka-za-marketinška-istraživanja-produkt-menadžere-analitičare-iskusne-softverske-inženjere-koji-rade-na-prekvalifikaciji-u-mlai-studente-i-postdiplomce-na-pragu-tržišta-rada-i-čak-iskusne-stručnjake-u-mlai"
+class="section level3">
+<h3><strong>Klasičan Data Science kurs DataKolektiv koji su pohađale već
+generacije polaznika sada i u programskom jeziku Python. Desetina
+polaznika od 2020 godine postavilo je sa nama solidne u osnove u Data
+Science i mašinskom učenju, ubrajajući dvanest stručnjaka za marketinška
+istraživanja, produkt menadžere, analitičare, iskusne softverske
+inženjere koji rade na prekvalifikaciji u ML/AI, studente i postdiplomce
+na pragu tržišta rada, i čak iskusne stručnjake u ML/AI!</strong></h3>
+<p>Ovaj kurs je egzaktna replika našeg klasičnog <a
+href="https://datakolektiv.com/app_direct/introdsnontech/">DATA SCIENCE
+SESSIONS</a> kursa u programskom jeziku R - <strong>sada implementiranog
+u programskom jeziku Python na zahtev naših klijenata!</strong> Tri
+meseca intenzivne obuke sa minimalnim pretpostavkama: od osnova Python
+programiranja, preko uvoda u matematičku statistiku nivoa neophodnog za
+Data Science, ka najbitnijim algoritmima mašinskog učenja u praksi +
+vizuelizacija podataka i izveštavanje.</p>
+</div>
+</div>
+<div id="plan-rada" class="section level2">
+<h2><strong>Plan rada</strong></h2>
+<div
+id="sesije-uživo-se-održavaju-subotama-od-23.-septembra-do-16.-decembra-2023.-u-beogradu-1000---1800-sa-pauzom-za-ručak-dok-radnim-danima-ponedeljak---petak-radimo-asihrono-preko-slack-platforme-i-na-github-gde-vodimo-vaš-samostalan-rad-delimo-vežbe-i-projekte-organizujemo-11-konsultacije-video-calls-kada-su-potrebni-i-gde-smo-u-realnom-vremenu-dostupni-za-pomoć-savete-i-da-odgovorimo-na-sva-baš-sva-vaša-pitanja."
+class="section level4">
+<h4><strong>Sesije uživo se održavaju subotama od 23. septembra do 16.
+decembra 2023. u Beogradu, 10:00 - 18:00 sa pauzom za ručak, dok radnim
+danima (ponedeljak - petak) radimo asihrono preko Slack platforme i na
+GitHub gde vodimo vaš samostalan rad, delimo vežbe i projekte,
+organizujemo 1:1 konsultacije, video calls kada su potrebni, i gde smo u
+realnom vremenu dostupni za pomoć, savete, i da odgovorimo na sva (baš
+sva) vaša pitanja.</strong></h4>
+<hr />
+</div>
+</div>
+<div id="ciljevi" class="section level2">
+<h2><strong>Ciljevi</strong></h2>
+<p>Pošto završite ovaj kurs sa nama, vi ćete moći da</p>
+<ul>
+<li><strong>usvojite podatke za rad</strong> iz nekoliko različitih
+izvora (baza podataka, Internet, fajlovi na vašem računaru);</li>
+<li><strong>podatke pročistite i restruktuirate</strong> tako da budu
+pripremljeni za potrebe analitike i/ili primenu mašinskog učenja na
+njima;</li>
+<li><strong>podatke vizuelizujete i uradite eksploratornu analizu
+podataka (EDA)</strong>, postupak kojim ustanovljavate osnovne
+pravilnosti i izvlačite značajne uvide iz podataka;</li>
+<li>sa sigurnošću <strong>rezonujete o rezultatima statističkih analiza,
+modela, i testova hipoteza</strong>, uključujući naravno sve bitne forme
+popularnog <strong>A/B testiranja</strong>;</li>
+<li>primenite nekoliko različitih <strong>modela mašinskog učenja za
+rešavanje regresionih i klasifikacionih problema</strong> (ovakvi
+problemi pokrivaju 90% problema u oblasti poslovne analitike; naš kurs
+pokriva sve najbitnije algoritme mašinskog učenja za njihovo
+rešavanje);</li>
+<li><strong>napravite izveštaj</strong> o rezultatima vašeg rada iz
+popularnog Jupyter Notebook sistema i prosledite ga u HTML ili PDF
+formatu vašim klijentima.</li>
+</ul>
+<p>Drugim rečima, na ovom kursu prolazimo sve faze kompletnog projekta u
+Data Analytics i Data Science do nivoa softverskog inženjerstva AI
+rešenja (MLOps odn. plasiranja kompletnih ML baziranih aplikacija u
+produkciona okruženja, što je postupak koji jednostavno zahteva kurs za
+sebe).</p>
+<hr />
+</div>
+<div
+id="izvesno-onaj-kurs-u-data-science-i-ml-u-python-koji-ste-oduvek-tražili"
+class="section level2">
+<h2><strong>Izvesno onaj kurs u Data Science i ML u Python koji ste
+oduvek tražili</strong></h2>
+<p>Prema svim saznanjima koje imamo, ovaj intenzivan kurs Data Science i
+mašinskog učenja (ML) u Python za <strong>je jedinstven u
+Srbiji</strong>: prilagođen početnicima u Python programarinaju (ili, uz
+minimalnu pripremu, onima bez ikakvog predznanja) i imaju makar
+elementarno (srednjoškolsko) predznanje iz statistike i verovatnoće, naš
+<strong>DATA SCIENCE VOL.04 :: Uvod u Python za Data Science</strong>
+pruža priliku onima koji su spremni da posvete tri meseca nauci o
+podacima, vizuelizacijama i mašinskom učenju da kroz intenzivan,
+neposredan rad sa trojicom iskusnih eksperata u DataKolektiv savladaju
+rad u suštinskim paketima za Data Science u Python: <a
+href="https://numpy.org/">Numpy</a> i <a
+href="https://scipy.org/">Scipy</a>, <a
+href="https://pandas.pydata.org/">Pandas</a>, <a
+href="https://www.statsmodels.org/stable/index.html">Statsmodels</a>, <a
+href="https://scikit-learn.org/stable/">Scikit Learn</a>, <a
+href="https://matplotlib.org/">Matplotlib</a>, <a
+href="https://seaborn.pydata.org/">Seaborn</a>, i <a
+href="https://plotly.com/">Plotly</a>.</p>
+<hr />
+</div>
+<div id="mldata-science-su-beskrajno-interesantni-i-perspektivni"
+class="section level2">
+<h2><strong>ML/Data Science su beskrajno interesantni (i
+perspektivni)</strong></h2>
+<p>U ovim oblastima su dobri oni koji mogu da ih zavole, znaju da uzmu
+inženjerski pristup problemima, radoznali su i žele da oslobode vrednost
+ogromnih količina podataka koje svet kreira svakodnevno. ML je već
+centralni deo mnogih proizvoda u IT-u uopšte, a odavno je sržni deo
+analitike poslovanja.</p>
+<p>Jaz između potražnje i ponude kvalifikovanog kadra na tržištu je
+<strong>neverovatan</strong>, što ovo čini <strong>izvrsnim karijernim
+izborom</strong>. Pogledajte koliko vremena ostaju otvoreni oglasi za
+poslove u Data Science pa ćete moći da zamislite koliko je teško naći
+pravu osobu za tako nešto.</p>
+<p><img src="regression_mle.png" /></p>
+<p>Na ovom grafikonu se vidi kompletna funkcija verodostojnosti (engl.
+<em>Likelihood function</em>) jednostavnog linearnog regresionog modela.
+Zvuči komplikovano? To ćete vi da naučite da uradite u Python “na ruke”
+i razumete do detalja uz nas!</p>
+<hr />
+</div>
+<div id="ograničen-broj-polaznika-i-personalizacija"
+class="section level2">
+<h2><strong>[!!!]Ograničen broj polaznika i
+personalizacija</strong></h2>
+<p>DataKolektiv <strong>nikada</strong> ne radi sa velikim brojem
+polaznika, zato što tokom učešća na našim kursevima
+<strong>personalizujemo rad prema vašim potrebama!</strong> To garantuje
+da ćete sa nama provesti dovoljno vremena u radu i moći da diskutujete
+uživo i online <strong>baš sva pitanja koja budete imali</strong>,
+razmenite ideje sa nama - i čak kodirate zajedno sa nama u
+pair-programming sesijama. Na primer, tokom ovog kursa imaćemo više
+celodnevnih sesija uživo, ali smo pored toga radnim danima praktično
+non-stop na raspolaganju online na Slack kanalu kursa i GitHub gde
+radimo <em>code review</em> za vas, savetujemo vas, delimo dopunske
+materijale, organizujemo 1:1 konsultacije na Google Meet kada je to
+potrebno, timski rad u malim grupama, i naravno odgovaramo na baš, baš
+sva vaša pitanja! :-) <strong>DataKolektiv radi već godinama po ovoj
+metodologiji i to nam omogućava da se svakom polazniku posvetimo
+maksimalno i precizno u skladu sa njegovim potrebama!</strong></p>
+<hr />
+</div>
+<div id="šta-radimo-konkretno" class="section level2">
+<h2><strong>Šta radimo konkretno?</strong></h2>
+<p>Kompletna obuka za <strong>(a)</strong> osnove Python programiranja i
+upravljanje podacima (Numpy, Pandas, rad sa relacionim bazama podatka,
+preuzimanje podataka sa Interneta preko API poziva),
+<strong>(b)</strong> vizuelizacija podataka (statička i interaktivna) i
+izveštavanje o rezultatima kroz Jupyter Notebooks, <strong>(c)</strong>
+osnove teorije verovatnoće i matematičke statistike u Data Science, i
+<strong>(d)</strong> Machine Learning metode nadgledanog učenja
+(<em>Supervised Learning</em>) u programskom jeziku Python, sa studijama
+poslovnih problema u oblasti predikcije cena tržišta nekretnina,
+predikcije popularnosti online sadržaja, predikcije odlaska korisnika
+(churn) i drugih. Od linearne regresije do Random Forest modela - sve u
+danas sve više i više ubedljivo najpopularnijem programskom jeziku na
+svetu i u ovoj oblasti: Python.</p>
+<p><img src="session00_logos.png" /></p>
+<p><strong>U DataKolektiv smo prilično pragmatični i naš pristup je
+kompletno, totalno praktičan: cilj nam je da vi na kraju kursa
+jednostavno znate da neki problem pred sobom rešite! Matematičke osnove
+predajemo, ali isključivo do nivoa koji je neophodan za razumevanje
+modeliranja u ML i Data Science; sve ostalo učite tako što učite da to
+nešto isprogramirate, a vaše znanje razvijate i testirate na praktičnim
+primerima i diskutujete sa nama. Mi smo iskusna konsultanstka kuća u ML
+i Data Science, pružali smo usluge nekim od najvećih provajdera podataka
+na svetu uopšte i vodećim evropskim bankama, i kada učite sa nama, učite
+isto ono što mi radimo za naše klijente i naplaćujemo im: pristup je
+prilično “odmah u vodu, i plivaj” (uz našu pomoć).</strong></p>
+<hr />
+</div>
+<div id="predavači" class="section level2">
+<h2><strong>Predavači</strong></h2>
+<p><img src="goran_milovanovic_introMLpython.jpg" /></p>
+<p><a href="https://www.linkedin.com/in/gmilovanovic/">Goran S.
+Milovanović, Phd</a>. Studirao matematiku, filozofiju, i psihologiju, na
+Beogradskom i Njujorškom (NYU) univerzitetu, doktorirao psihologiju.
+Programer od svoje desete godine, objavio prvi naučni rad sa dvadeset
+godina, sarađivao sa vrhunskim kognitivnim naučnicima i objavljivao
+radove citirane u Stevens’ Handbook of Experimental Psychology.
+Višegodišnje iskustvo u analitici i mašinskom učenju na nekim od
+najvećih sistema podataka u svetu (Wikidata), član programskih odbora
+evropskih konferencija u Data Science. Kao individualni konsultant, u
+saradnji sa američkim edu startups, i sa DataKolektiv obrazovao je
+desetine ljudi za rad u Data Science i ML.</p>
+<p><img src="aleksandar_cvetkovic_introMLpython.jpg" /></p>
+<p><a href="https://www.linkedin.com/in/alegzndr/">Aleksandar Cvetković,
+Phd</a>. Završio doktorske studije primenjene matematike u Italiji (GSSI
+– Lakvila, SISSA – Trst) baveći se naučno-istraživačkim radom u oblasti
+kontrole i optimizacije. Autor i koautor nekoliko naučnih radova
+objavljivanih u vodećim internacionalnim časopisima. Višegodišnje
+iskustvo u ML industriji i edukaciji, sa fokusom na mašinsko učenje, 3D
+kompjutersko viđenje, grafovske neuronske mreže i ubrzavanje rada ML
+algoritama na hardveru, trenutno u gejming industriji.</p>
+<p><img src="IlijaLazarevic175px.jpg" /></p>
+<p><a href="https://www.linkedin.com/in/alegzndr/">Ilija Lazarevic,
+MSc</a>. Završio master studije informatike na Univerzitetu u
+Kragujevcu, učestvovao u nastavi iz predmeta Operativni sistemi.
+Višegodišnje iskustvo na pozicijama softverskog inženjera i inženjera
+mašinskog učenja, specijalista za (a) probleme automatske procene cena
+(pricing) u domenu nekretnina na međunarodnom tržištu, i (b) razvoj
+sistema za preporuke (recommendation engines) u domenu kazino igara.</p>
+<hr />
+</div>
+<div id="program-rada-i-kalendar-kursa" class="section level2">
+<h2><strong>Program rada i kalendar kursa</strong></h2>
+<p>Svake subote od 23. septembra do 16. decembra radićemo 10:00 - 18:00
+(sa pauzom za ručak) u Beogradu. Radnim danima, preko Slack i GitHub
+platformi, radimo asinhrono, što praktično znači da smo vam u realnom
+vremenu dostupni za pomoć i savete u vezi vežbanja (labs) koja ćemo
+podeliti posle nastave u subotu, dodatne diskusije, i video pozive po
+potrebi. Sesija 00 će biti organizovana online pre početka kursa da
+proverimo sve neophodne instalacije i upoznamo se. Završne sesije (23,
+24) su završna radionica kursa na kojoj ćemo razvijati jedan kompletan
+Data Science projekat zajedno.</p>
+<ul>
+<li><p><strong>Priprema: instalacije, organizacija sistema, i uvodna
+čitanja</strong></p>
+<ul>
+<li>Instalacija Python 3.8.10</li>
+<li>Kreiranje virtuelnog okruženja (venv) + instalacije paketa</li>
+<li>Instalacija Visual Studio Code IDE</li>
+<li>Instalacija MariaDB baze podataka</li>
+<li>Instalacija VS Code ekstenzije za rad sa Jupyter Notebooks</li>
+<li>Instalacije i setovanja za Git/GitHub + organizacija naše Slack
+platforme</li>
+</ul></li>
+<li><p><strong>Oktobar 14</strong></p>
+<ul>
+<li><strong>Sesija 00. Provera instalacija, snalaženje u radnom
+okruženju, i pregled kursa.</strong>
+<ul>
+<li>Provera ispravnosti instalacija i testrianje</li>
+<li>Kako raditi u radnom okruženju kursa: VS Code, Git, GitHub</li>
+<li>Organizacija rada i komunikacija<br />
+</li>
+</ul></li>
+<li><strong>Sesija 01. Osnove + intuitivno razumevanje programskog
+jezika Python u kontekstu Data Science</strong>
+<ul>
+<li>Python kao kalkulator</li>
+<li>Elementarna matematika u Python</li>
+<li>Tipovi: Set, Tupple, List, Dictionary</li>
+<li>Osnovne operacije sa stringovima</li>
+<li>Učitavanje jednog Pandas DataFrame i rad sa njima: Series</li>
+</ul></li>
+</ul></li>
+<li><p><strong>Oktobar 21</strong></p>
+<ul>
+<li><strong>Sesija 02. Fundamentalni tipovi podataka i klase; subsetting
+(“seckanje”) Pandas DataFrame-a</strong></li>
+<li>Napredni rad sa tipovima: Sets, Tuples, Lists, Dictionaries</li>
+<li>Stringovi, detaljnije</li>
+<li>Pandas DataFrame, detaljnije</li>
+<li>Seckanje DataFrame klase: loc(), iloc(), indexes</li>
+<li>Još više obrad Pandas DataFrame</li>
+<li>Osnovne vizualizacije podataka iz Pandas</li>
+<li><strong>Sesija 03. Kontrola toka, funkcije, I/O operacija. Više on
+Pandas DataFrame: apply</strong>
+<ul>
+<li>Iteracije: For, While</li>
+<li>Odluke: If … Else</li>
+<li>Defanzivno programiranje: Try… Except</li>
+<li>Map za liste, zip</li>
+<li>I/O operacije: os modul, otvori fajl, piši</li>
+<li>Pandas: apply</li>
+<li>još o seckanju (subsetting) DataFrame klase</li>
+<li>Agregacije u Pandas: filter, groupBy, agg</li>
+</ul></li>
+</ul></li>
+<li><p><strong>Oktobar 28</strong></p>
+<ul>
+<li><strong>Sesija 04. Numpy i Pandas. Koncept broadcasting u
+Numpy</strong>
+<ul>
+<li>Uvod u Numpy: vektorizacija Python</li>
+<li>Broadcasting</li>
+<li>Osnove vektorske i matrične aritmetike u Numpy</li>
+<li>Iz Numpy u Pandas i nazad: odnos struktura podataka u dva ključna
+paketa</li>
+</ul></li>
+<li><strong>Sesija 05. Stringovi i regularni izrazi</strong>
+<ul>
+<li>Obrada stringova</li>
+<li>Regex</li>
+<li>Primer: razvoj term-document matrice u Python</li>
+</ul></li>
+</ul></li>
+<li><p><strong>Novembar 04</strong></p>
+<ul>
+<li><strong>Sesija 06. Exploratory Data Analysis (EDA)</strong>
+<ul>
+<li>EDA studija slučaja</li>
+<li>Fundamenti Matplotlib i Seaborn vizuelizacija</li>
+<li>Pandas, pivot + agregacije</li>
+<li>Primeri</li>
+</ul></li>
+<li><strong>Sesija 07. Relacione strukture i pivot u Pandas</strong>
+<ul>
+<li>Relacione strukture u Pandas</li>
+<li>Tipovi <em>join</em> operacija i primena</li>
+<li>Pandas <code>pivot</code>: iz wide u long format i nazad kroz
+<code>melt</code></li>
+<li>Primeri</li>
+</ul></li>
+</ul></li>
+<li><p><strong>Novemabar 18</strong></p>
+<ul>
+<li><strong>Sesija 10. Rad sa relacionim bazama podataka (RDBS) iz
+Python u lokalu</strong>
+<ul>
+<li>Instalacija MariaDB/PostrgreSQL</li>
+<li>Okvir za rad sa RDBS u Python</li>
+<li>Crash Course: SQL</li>
+<li>Paketi: Pandas, SciPi, Matplotlib</li>
+</ul></li>
+</ul></li>
+<li><p><strong>Novembar 25</strong></p>
+<ul>
+<li><strong>Sesija 08. Uvod u teoriju verovatnoće u Python I. Slučajne
+promenljive i funkcije verovatnoće</strong>
+<ul>
+<li>Teorija verovatnoće</li>
+<li>Funkcije verovatnoće: funkcija mase verovatnoće, kumulativna
+funkcija</li>
+<li>Diskretne distribucije: binomijalna, geometrijska, uniformna,
+Poisson</li>
+<li>Paketi: Numpy, SciPi, Pandas, Matplotlib, Seaborn</li>
+</ul></li>
+<li><strong>Sesija 09. Uvod u teoriju verovatnoće u Python II: Slučajne
+promenljive i funkcije verovatnoće</strong>
+<ul>
+<li>Kontinuirane distribucije: Normalna, uniformna, eksponencijalna</li>
+<li>Funkcije verovatnoće: funkcija gustine verovatnoće, kumulativna
+funkcija, inverzna kumulativna</li>
+<li>Paketi: Numpy, SciPi, Pandas, Matplotlib, Seaborn</li>
+</ul></li>
+</ul></li>
+<li><p><strong>Decembar 02</strong></p>
+<ul>
+<li><strong>Sesija 11. Uvod u teoriju verovatnoće u Python III: uslovna
+verovatnoća i Bajesova teorema. Osnove teorije ocene (estimation
+theory)</strong>
+<ul>
+<li>Uslovna verovatnoća</li>
+<li>Pojam multivarijantne distribucije</li>
+<li>Bajesova teorema</li>
+<li><em>Sampling</em> distribucija proseka i njena standardna
+greška</li>
+<li>Pristrasnost (bias) i varijansa (variance) statističke ocene</li>
+<li>Paketi: SciPi, Numpy, Matplotlib, Statsmodels, scikit-learn</li>
+</ul></li>
+<li><strong>Sesija 12.</strong> Uvod u statističku teoriju ocene I:
+razumevanje logike testiranja hipoteza i statističkog modeliranja.
+<ul>
+<li><span class="math inline">\(\chi^2\)</span>-distribucija i
+statistički test</li>
+<li>Numerička simulacija: Centralna granična teorema</li>
+<li>Koncepti kovarijanse i korelacije</li>
+<li>Prosta linearna regresija</li>
+<li>Paketi: SciPi, Numpy, Matplotlib, Statsmodels, scikit-learn</li>
+</ul></li>
+</ul></li>
+<li><p><strong>Decembar 09</strong></p>
+<ul>
+<li><strong>Sesija 13. Uvod u statističku teoriju ocene II. Parcijalna i
+semi-parcijalna korelacija. Logika statističkog modeliranja. Na scenu
+stupa Sim-Fit petlja. Pristrasnost i varijansa statističke ocene.
+Parametrijski bootstrap u linearnoj regresiji.</strong>
+<ul>
+<li>Paketi: Statsmodels, SciPi, Matplotlib.</li>
+</ul></li>
+<li><strong>Sesija 14. Uvod u statističku teoriju ocene III. Multipla
+linearna regresija. Dijagnostika linearnog modela. Uloga semi-parcijalne
+korelacije u ovom modelu. Dummy (one-hot) kodiranje kategoričkih
+prediktora. Ugnježdeni modeli.</strong>
+<ul>
+<li>SciPi, Matplotlib</li>
+<li>Statsmodels i scikit-learn za linearnu regresiju</li>
+</ul></li>
+</ul></li>
+<li><p><strong>Decembar 16</strong></p>
+<ul>
+<li><strong>Sesija 15. Uvod u statističku teoriju ocene IV. Kompletno
+objašnjenje logike statističkog modeliranja: optimizacija prostog
+linearnog regresionog modela “na ruke”. Razumevanje zašto je učenje isto
+što i optimizacija: pojam minimizacije greške modela. Regularizacija (L1
+i L2) u regresionim problemima.</strong>
+<ul>
+<li>SciPi, Matplotlib, Plotly</li>
+<li>Statsmodels i scikit-learn za linearnu regresiju</li>
+</ul></li>
+<li><strong>Sesija 16. Generalizovani linearni modeli I. Problem binarne
+klasifikacije: Binomijalna logistička regresija. Teorija verovatnoće:
+ocena maksimalne verodostojnosti (engl. Maximum Likelihood Estimate,
+MLE).</strong>
+<ul>
+<li>Numpy, SciPi, Matplotlib</li>
+<li>Statsmodels i scikit-leanr za Binomijlanu linearnu regresiju</li>
+</ul></li>
+</ul></li>
+<li><p><strong>Decembar 23</strong></p>
+<ul>
+<li><strong>Sesija 17. Generalizovani linearni modeli II. Multinomijalna
+regresija za klasifikacione probleme. ROC analiza za klasifikacione
+probleme. Dopunska diskusija ocena maksimalne verodostojnosti.</strong>
+<ul>
+<li>Numpy, SciPi, Matplotlib, Seaborn</li>
+<li>Statsmodels i scikit-learn za Multinomijalnu regresiju</li>
+</ul></li>
+<li><strong>Sesija 18. Generalizovani linearni modeli III. Poisson
+regresija. Negativna binomijalna regresija.</strong>
+<ul>
+<li>Kros-validacija regresionih problema</li>
+<li>SciPi, Matplotlib</li>
+<li>Statsmodels i scikit-learn za Poisson i Negativnu bimonijalnu
+regresiju</li>
+</ul></li>
+</ul></li>
+<li><p><strong>Decembar 30</strong></p>
+<ul>
+<li><strong>Sesija 19. Kros-validacija klasifikacionih problema. Uvod u
+Decision Tree model: komplikovani problemi klasifikacije i moćna
+rešenja. Elementi teorije informacija za klasifikaciona drveta.</strong>
+<ul>
+<li>Numpy, Pandas, Scipy, scikit-learn</li>
+</ul></li>
+<li><strong>Sesija 20. Klasifikaciona i regresiona drveta (CART).
+Pre-pruning i post-pruning u Decision Tree modelu.</strong>
+<ul>
+<li>Paketi: Numpy, Pandas, Scipy, scikit-learn</li>
+</ul></li>
+</ul></li>
+<li><p><strong>Decembar 09</strong></p>
+<ul>
+<li><strong>Sesija 21. Random Forest modeli: Bagging, Out-Of-Bag (OOB)
+Error, Bootstrap uzorci + Random Subspace metod</strong>
+<ul>
+<li>Teorijska nastava: Bagging pristup, Random Subspace metod</li>
+<li>Paketi: scikit-learn</li>
+</ul></li>
+<li><strong>Sesija 22. Random Forests: studije slučajeva (regresioni i
+klasifikacioni problemi)</strong>
+<ul>
+<li>SciPi, Matplotlib, Scikit-learn</li>
+</ul></li>
+</ul></li>
+<li><p><strong>Decembar 16</strong></p>
+<ul>
+<li><strong>Sesija 23 + 24 = finalna radionica kursa (projektni rad).
+</strong></li>
+</ul></li>
+</ul>
+<hr />
+</div>
+<div id="šta-naši-polaznici-pišu-o-našim-kursevima"
+class="section level2">
+<h2><strong>Šta naši polaznici pišu o našim kursevima?</strong></h2>
+<p>Pogledajte šta bivši polaznici DataKolektiv kurseva govore o nama na
+našoj <a
+href="https://www.datakolektiv.com/app_direct/DataKolektivServer/about.html#testimonials">Testimonials</a>
+stranici. Sve profesionalce u Data Science koje vidite na ovoj stranici
+možete direktno kontaktirati preko njihovih LinkedIn profila koji su
+tamo navedeni i pitati ih da direktno razmene svoja iskustva sa naših
+kurseva sa vama!</p>
+<hr />
+</div>
+<div id="predznanje" class="section level2">
+<h2><strong>Predznanje</strong></h2>
+<p>U pitanju je <em>intenzivan kurs za Data Science i ML u Python</em>,
+tako da…</p>
+<ul>
+<li><p>nije loše doći na kurs sa <strong>tek elementarnim</strong>
+predznanjem statistike i verovatnoće, na nivou srednjoškolskog
+obrazovanja, ali je bitnija <strong>sklonost ka tome da se o problemima
+razmišlja kroz svet brojeva i podataka</strong> - jer ćemo mi pružiti
+kompletan uvod u statistiku i verovatnoću do neophodnog nivoa za
+razumevanje svih materijala tokom kursa;</p></li>
+<li><p>nije loše doći na kurs sa <strong>makar minimalnim
+iskustvom</strong> programiranja u Python, ali će i to biti pokriveno na
+prvih nekoliko sesija tako da ćete moći praktično da naučite Python za
+potrebe rada u Data Science sa nama;</p></li>
+<li><p>ne bi bilo loše da se pre kursa podsetite šta su funkcije, šta je
+maksimum a šta minimum neke funkcije, kako se crtaju njihovi grafikoni i
+sl, ali za to ćete imati pregledne online materijale i dvojicu
+matematičara među predavačima da ponovimo nephodno;</p></li>
+<li><p><strong>motivacija, dobra volja, pozitivna emocija, i želja za
+uspehom</strong> su definitivno stvari koje treba da spakujete sa sobom
+i ponesete na kurs.</p></li>
+</ul>
+<hr />
+</div>
+<div id="cena-1" class="section level2">
+<h2><strong>Cena</strong></h2>
+<p>Kurs se sastoji iz tri (3) modula. Polaznici mogu da pohađaju zasebno
+bilo koji od modula u zavisnosti od procene njihove prethodne
+pripremljenosti. Za pohađanje dva modula ili uzimanje kursa u celini
+postoje popusti:</p>
+<ul>
+<li>Modul 1. Uvod u Python za Data Science: EUR 500</li>
+<li>Modul 2. Python analitičar podataka: EUR 600</li>
+<li>Modul 3: Mašinsko učenje u Python: EUR 700</li>
+<li>Modul 1 + Modul 2: <strong>EUR 1000</strong> (u dve rate za fizička
+lica)</li>
+<li>Modul 1 + Modul 2 + Modul 3: <strong>EUR 1500</strong> (u tri rate
+za fizička lica)</li>
+</ul>
+<p><img src="DSS05_2023_srb.png" /></p>
+<hr />
+</div>
+<div id="prijava" class="section level2">
+<h2><strong>Prijava</strong></h2>
+<div id="prijavite-se-na-hellodatakolektiv.com-."
+class="section level3">
+<h3><strong>&gt;&gt; Prijavite se na: <a
+href="mailto:hello@datakolektiv.com">hello@datakolektiv.com</a>
+&lt;&lt;</strong>.</h3>
+<p>Pošaljite nam mejl, poneku reč o sebi, a mi ćemo vam odgovoriti
+zahtevom za detaljnijim podacima neophodnim za registraciju na kurs i
+odgovoriti na sva pitanja koja možda imate pre početka kursa!</p>
+</div>
+</div>
+</div>
+
+<hr>
+<p style="text-align:center;">
+  <img src="DK_Logo_White_150.png">
+</p>
+<p style="font-size:13px;text-align:center;">
+  <b>Contact: </b><a href = "mailto: hello@datakolektiv.com">hello@datakolektiv.com</a><br><br><a href="https://github.com/datakolektiv"><img src="github.png"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/company/datakolektiv/"><img src="linkedin.png"></a>
+</p>
+<p style="font-size:11px;text-align:center;"><b>Impressum</b><br>
+<b>Goran Milovanovic PR Data Kolektiv</b>, Breza 4/7, ČUKARICA-BEOGRAD<br>11000 Beograd, Republika Srbija, ID(APR):64498339, TIN:109890695
+</p>
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

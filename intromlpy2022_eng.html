@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>DATA SCIENCE INTENSIVE 2022</title>
+
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-12CPF31065"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-12CPF31065');
+</script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"><img id="logo" style="width: 30px;" src="DK_Logo_White_NoTitle_25.png" /></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="consulting.html">Consulting</a>
+</li>
+<li>
+  <a href="courses.html">Training</a>
+</li>
+<li>
+  <a href="research.html">Research</a>
+</li>
+<li>
+  <a href="contact.html">Contact</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="media.html">Media</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">DATA SCIENCE INTENSIVE 2022</h1>
+
+</div>
+
+
+<div id="introduction-to-machine-learning-ml-in-python"
+class="section level1">
+<h1><strong>Introduction to Machine Learning (ML) in
+Python</strong></h1>
+<div id="december-2022-startit-center-belgrade" class="section level2">
+<h2>December 2022, Startit center Belgrade</h2>
+</div>
+<div id="online-slackgithub" class="section level2">
+<h2>Online Slack/GitHub</h2>
+<hr />
+<div id="sign-up-e-mail-to-hellodatakolektiv.com"
+class="section level3">
+<h3><strong>&gt;&gt; Sign up e-mail to: <a
+href="mailto:hello@datakolektiv.com">hello@datakolektiv.com</a>
+&lt;&lt;</strong></h3>
+<p><img src="IntroMLPython_Head_eng.png" /></p>
+</div>
+<div id="sign-up-by-e-mail-to-hellodatakolektiv.com"
+class="section level3">
+<h3><strong>&gt;&gt; Sign up by e-mail to: <a
+href="mailto:hello@datakolektiv.com">hello@datakolektiv.com</a>
+&lt;&lt;</strong></h3>
+</div>
+</div>
+</div>
+<div id="price-1000-700" class="section level1">
+<h1>Price <strong><del>1000€</del> 700€</strong></h1>
+<hr />
+<div id="schedule" class="section level2">
+<h2><strong>Schedule</strong></h2>
+<div
+id="the-live-sessions-will-be-held-on-saturdays-december-3-10-17-and-24-2022-in-the-startit-center-belgrade-savska-5-11000-belgrade-900-a.m.---600-p.m.-00-with-a-lunch-break-while-on-weekdays-monday---friday-we-work-asynchronously-via-the-slack-platform-and-on-github-where-we-manage-your-independent-coursework-share-exercises-and-projects-organize-11-consultations-video-calls-when-needed-and-where-we-are-available-in-real-time-for-help-advice-and-to-answer-all-absolutely-all-of-your-questions."
+class="section level4">
+<h4>**The live sessions will be held on Saturdays, December 3, 10, 17,
+and 24, 2022 in the <a href="https://startit.rs/beograd/">Startit Center
+Belgrade, Savska 5, 11000 Belgrade</a>, 9:00 a.m. - 6:00 p.m. 00 with a
+lunch break, while on weekdays (Monday - Friday) we work asynchronously
+via the Slack platform and on GitHub where we manage your independent
+coursework, share exercises and projects, organize 1:1 consultations,
+video calls when needed, and where we are available in real-time for
+help, advice, and to answer all (absolutely all) of your questions.</h4>
+<p>**</p>
+<hr />
+</div>
+</div>
+<div
+id="certainly-that-ml-in-python-course-youve-always-been-looking-for"
+class="section level2">
+<h2><strong>Certainly that ML in Python course you’ve always been
+looking for</strong></h2>
+<p>According to all the information we have, this intensive machine
+learning (ML) course in Python <strong>is unique in Serbia</strong>:
+adapted to Python programmers who know at least the basics of this
+programming language and have at least elementary (Stats 101 college
+level) prior knowledge of probability theory, our <strong>Introduction
+to Machine Learning (ML) in Python</strong> provides an opportunity for
+those who are ready to dedicate a month to Machine Learning to master
+the essential packages for ML and Data Science through intensive, direct
+work with two DataKolektiv experts: <a
+href="https%20://numpy.org/">Numpy</a> and <a
+href="https://scipy.org/">Scipy</a>, <a
+href="https://pandas.pydata.org/">Pandas</a>, <a
+href="https://www.statsmodels%20.org/stable/index.html">Statsmodels</a>,
+<a href="https://scikit-learn.org/stable/">Scikit Learn</a>, <a
+href="https://matplotlib.org/">Matplotlib</a>, <a
+href="https:/%20/seaborn.pydata.org/">Seaborn</a>, and <a
+href="https://plotly.com/">Plotly</a>.</p>
+<hr />
+</div>
+<div id="mldata-science-are-endlessly-interesting-and-promising"
+class="section level2">
+<h2><strong>ML/Data Science are endlessly interesting (and
+promising)</strong></h2>
+<p>Those who are good at these fields are those who can love them, know
+how to take an engineering approach to problems, are curious and want to
+unlock the value of the huge amounts of data the world creates every
+day. ML is already a central part of many products in IT in general, and
+has long been a core part of business analytics.</p>
+<p>The gap between demand and supply of qualified personnel in the
+market is <strong>unbelievable</strong>, which makes this an
+<strong>excellent career choice</strong>. Take a look at how long data
+science job postings stay open and you’ll be able to imagine how
+difficult it is to find the right person for such a job.</p>
+<hr />
+</div>
+<div id="limited-number-of-participants-and-personalization"
+class="section level2">
+<h2><strong>[!!!]Limited number of participants and
+personalization</strong></h2>
+<p>DataCollective <strong>never</strong> works with a large number of
+participants, because during participation in our courses we
+<strong>personalize the work according to your needs!</strong> This
+guarantees that you will spend enough time working with us and be able
+to discuss live and online <strong>any questions you may have</strong>,
+exchange ideas with us - and even code together with us in
+pair-programming sessions. For example, during this course we will have
+four full-day live sessions, but in addition we are available
+practically non-stop on weekdays online on the course’s Slack channel
+and GitHub where we do <em>code review</em> for you, advise you, share
+supplementary materials, organize 1: 1 consultation on Google Meet when
+necessary, and of course we answer all your questions! :-)
+<strong>DataKolectiv has been working for years according to this
+methodology, and this allows us to dedicate ourselves to each
+participant as much as possible and precisely in accordance with their
+needs!</strong></p>
+<hr />
+</div>
+<div id="what-do-we-do-specifically" class="section level2">
+<h2><strong>What do we do specifically?</strong></h2>
+<p>Complete training for ML methods of supervised learning in the Python
+programming language, with studies of business problems in the area of
+real estate market price prediction, online content popularity
+prediction, churn prediction and others. From linear regression to the
+XGBoost model - known as the “Swiss army knife” for predictive
+analytics, winner of many Kaggle competitions, all in today’s by far the
+most popular programming language, Python.</p>
+<p><img src="session00_logos.png" /></p>
+<p><strong>At DataKolectiv, we are quite pragmatic and our approach is
+completely, totally practical: our goal is that at the end of the course
+you simply know how to solve a problem in front of you! We teach
+mathematical basics, but only to the level that is necessary for
+understanding modeling in ML and Data Science; everything else you learn
+by learning to program something, and you develop and test your
+knowledge on practical examples and discuss with us. We are an
+experienced consultancy in ML and Data Science, we have served some of
+the largest data providers in the world in general and leading European
+banks, and when you learn with us, you learn the same thing that we do
+for our clients and charge them: the approach is quite “immediately jump
+into the water - and swim!” (with our help).</strong></p>
+<hr />
+</div>
+<div id="lecturers" class="section level2">
+<h2><strong>Lecturers</strong></h2>
+<p><img src="goran_milovanovic_introMLpython.jpg" /></p>
+<p><a href="https://www.linkedin.com/in/gmilovanovic/">Dr. Goran S.
+Milovanovic</a>. Studied mathematics, philosophy, and psychology at
+University of Belgrade and New York University (NYU), received a
+doctorate in psychology. A programmer since the age of ten, he published
+his first scientific paper at the age of twenty, collaborated with top
+cognitive scientists and published papers cited in Stevens’ Handbook of
+Experimental Psychology. Many years of experience in analytics and
+machine learning on some of the largest data systems in the world
+(Wikidata), member of the program boards of European conferences in Data
+Science. As an individual consultant, in cooperation with American edu
+startups, and with DataKolektiv, he trained dozens of people to work in
+Data Science and ML.</p>
+<p><img src="aleksandar_cvetkovic_introMLpython.jpg" /></p>
+<p><a href="https://www.linkedin.com/in/alegzndr/">Dr. Aleksandar
+Cvetković</a>. Completed doctoral studies in applied mathematics in
+Italy (GSSI - Lakvila, SISSA - Trieste) doing scientific research in the
+field of control and optimization. Author and co-author of several
+scientific papers published in leading international journals.
+Aleksandar has many years of experience in the ML industry and
+education, with a focus on machine learning, 3D computer vision, graph
+neural networks and hardware acceleration of ML algorithms, currently in
+the gaming industry.</p>
+<hr />
+</div>
+<div id="schedule-details" class="section level2">
+<h2><strong>Schedule Details</strong></h2>
+<div id="week-1." class="section level3">
+<h3>Week 1.</h3>
+<ul>
+<li><strong>Saturday, December 3, 09:00 - 18:00 CET, Startit center,
+Belgrade</strong>
+<ul>
+<li>09:00 - 12:30. Introduction to Numpy and Pandas packages: data
+types, vectorization, working with <code>pandas.DataFrame</code>
+class.</li>
+<li>14:30 - 18:00. Data organization and arrangement (i.e. <em>data
+wrangling</em>) in Pandas for analytics and machine learning. An
+introduction to probability theory and mathematical statistics in Numpy
+and Scipy.</li>
+</ul></li>
+<li><strong>Asynchronous (Slack, GitHub), Monday, December 5 - Friday,
+December 9</strong>
+<ul>
+<li>Data visualization in Matplotlib and Seaborn packages</li>
+<li>Exploratory Data Analysis (EDA) in Pandas</li>
+<li>The method of least squares and optimization of a simple linear
+model.</li>
+</ul></li>
+</ul>
+</div>
+<div id="week-2." class="section level3">
+<h3>Week 2.</h3>
+<ul>
+<li><strong>Saturday December 10, 09:00 - 18:00 CET, Startit centar,
+Belgrade</strong>
+<ul>
+<li>09:00 - 12:30. Linear and multiple linear regression</li>
+<li>14:30 - 18:00. Introduction to generalized linear models: binomial
+logistic and multinomial logistic regression for classification
+problems</li>
+</ul></li>
+<li><strong>Asynchronous (Slack, GitHub), Monday, December 12 - Friday,
+June 16</strong>
+<ul>
+<li>Case Study 1: Churn Prediction</li>
+<li>How to control model overfit 1: regularization of linear and
+generalized linear models.</li>
+</ul></li>
+</ul>
+</div>
+<div id="week-3." class="section level3">
+<h3>Week 3.</h3>
+<ul>
+<li><strong>Saturday, June 18, 09:00 - 18:00 CET, Startit centar,
+Belgrade</strong>
+<ul>
+<li>09:00 - 12:30. Cross-validation and regularization in classification
+problems; model selection (ROC analysis)</li>
+<li>14:30 - 18:00. Decision Tree (CART)</li>
+</ul></li>
+<li><strong>Asynchronous (Slack, GitHub), Monday, December 19 - Friday,
+December 23</strong>
+<ul>
+<li>Case study 2: Price Prediction in the Real Estate Market</li>
+<li>How to control overfit of model 2: cross-validation and
+regularization in regression problems.</li>
+</ul></li>
+</ul>
+</div>
+<div id="week-4." class="section level3">
+<h3>Week 4.</h3>
+<ul>
+<li><strong>Saturday, December 24, 09:00 - 18:00 CET, Startit centar,
+Belgrade</strong>
+<ul>
+<li>09:00 - 12:30. Random Forest model for regression and classification
+problems</li>
+<li>14:30 - 18:00. Gradient Boosting: An XGBoost Model for Regression
+and Classification Problems</li>
+</ul></li>
+<li><strong>Asynchronous (Slack, GitHub), Monday, December 26 - Friday,
+December 30</strong>
+<ul>
+<li>Case Study 3: Web Content Popularity Prediction</li>
+<li>Case study 4: Complete model setup and fine-tuning parameters with
+the XGBoost algorithm for regression and classification problems.</li>
+</ul></li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="prerequisites" class="section level2">
+<h2><strong>Prerequisites</strong></h2>
+<p>it’s an <em>intensive ML in Python course</em>, so…</p>
+<ul>
+<li><p>if you have prior knowledge in the field of statistics, it would
+be good if it was at least an introductory college course; we will
+refresh with you the basics of probability theory and statistics and
+provide you with materials for your review of the basics of those areas
+to the extent sufficient to follow the course;</p></li>
+<li><p>it would not be bad to remind yourself what functions are, what
+is the maximum and what is the minimum of some functions, how to draw
+their graphs, etc., but for that you will have clear online materials
+and we will repeat the necessary;</p></li>
+<li><p>you should have at least elementary, working knowledge of the
+Python programming language: flow control, data types, classes,
+understanding what list comprehension is, etc.; again, and we’ll have
+review materials for that, but this course shouldn’t be your first time
+seeing the Python programming language.</p></li>
+</ul>
+<hr />
+</div>
+<div id="price" class="section level2">
+<h2><strong>Price</strong></h2>
+<p>The price is <strong>only €700</strong> in dinar equivalent, for
+individual learners it is possible to pay in 2 installments, groups of
+participants receive a discount of <strong>15%</strong> (note in your
+applications that you are applying as a group if you are a company or
+organization) .</p>
+<hr />
+</div>
+<div id="sign-up" class="section level2">
+<h2><strong>Sign up!</strong></h2>
+<div id="sign-up-via-e-mail-hellodatakolektiv.com"
+class="section level3">
+<h3><strong>&gt;&gt; Sign up via e-mail: <a
+href="mailto:hello@datakolektiv.com">hello@datakolektiv.com</a>
+&lt;&lt;</strong></h3>
+<hr />
+</div>
+</div>
+<div id="wher" class="section level2">
+<h2><strong>Wher?</strong></h2>
+<p>The live sessions, which are held on Saturdays in December, will be
+in the premises of Startit center Belgrade, Savska 5, 11000
+Belgrade.</p>
+<div>
+<div style="position:relative;">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2830.718369297101!2d20.453312815171934!3d44.80692788507961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475a7aaa0756e81f%3A0x1e47be2a38dbf0ee!2sStartit%20Centar%20Beograd!5e0!3m2!1ssr!2srs!4v1668206796153!5m2!1ssr!2srs" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+</div>
+</div>
+</div>
+
+<hr>
+<p style="text-align:center;">
+  <img src="DK_Logo_White_150.png">
+</p>
+<p style="font-size:13px;text-align:center;">
+  <b>Contact: </b><a href = "mailto: hello@datakolektiv.com">hello@datakolektiv.com</a><br><br><a href="https://github.com/datakolektiv"><img src="github.png"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/company/datakolektiv/"><img src="linkedin.png"></a>
+</p>
+<p style="font-size:11px;text-align:center;"><b>Impressum</b><br>
+<b>Goran Milovanovic PR Data Kolektiv</b>, Breza 4/7, ČUKARICA-BEOGRAD<br>11000 Beograd, Republika Srbija, ID(APR):64498339, TIN:109890695
+</p>
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
