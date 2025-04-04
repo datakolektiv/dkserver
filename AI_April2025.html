@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>AI Workshop April 2025</title>
+
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-12CPF31065"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-12CPF31065');
+</script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"><img id="logo" style="width: 30px;" src="DK_Logo_White_NoTitle_25.png" /></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="consulting.html">Consulting</a>
+</li>
+<li>
+  <a href="courses.html">Training</a>
+</li>
+<li>
+  <a href="research.html">Research</a>
+</li>
+<li>
+  <a href="contact.html">Contact</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="media.html">Media</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">AI Workshop April 2025</h1>
+
+</div>
+
+
+<div id="beograd-online" class="section level2">
+<h2>Beograd, online</h2>
+</div>
+<div id="google-meetslackgithub" class="section level2">
+<h2>Google Meet/Slack/GitHub</h2>
+<hr />
+<div id="prijavite-se-na-ai-workshop-april-2025" class="section level3">
+<h3><strong>🚀 Prijavite se na <a
+href="https://forms.gle/RAQxDkwnZzu71F2r8">AI Workshop April
+2025</a></strong></h3>
+</div>
+<div id="kontakt-na-e-mail-hellodatakolektiv.com"
+class="section level3">
+<h3><strong>📧 Kontakt na e-mail: <a
+href="mailto:hello@datakolektiv.com">hello@datakolektiv.com</a></strong></h3>
+<p><img src="ai_workshop_april2025.png" /></p>
+</div>
+<div id="prijavite-se-na-ai-workshop-april-2025-1"
+class="section level3">
+<h3><strong>🚀 Prijavite se na <a
+href="https://forms.gle/RAQxDkwnZzu71F2r8">AI Workshop April
+2025</a></strong></h3>
+</div>
+</div>
+<div id="cena-400" class="section level1">
+<h1>Cena <strong>400€</strong></h1>
+<p><strong>Očekivani tehnički background: NULA - dovoljno je
+interesovanje za AI tehnologije.</strong> Ovo <strong>nije tech
+radionica</strong> i primarno je orijentisana na razumevanje tržišta,
+aplikacija, i procesa u savremenim AI tehnologijama. Sve što treba da
+znate o samim AI tehnologijama da biste zakoričili u svet poslovanja ili
+plasmana na njima baziranih proizvoda - objasnićemo vam mi!</p>
+<hr />
+<div
+id="šta-treba-da-znamo-o-ai-tehnologijama-da-bismo-pokrenuli-biznis-sa-njima-unapredili-već-postojeće-poslovanje-ili-ih-maksimalno-iskoristili-u-našem-svakodnevnom-radu-datakolektiv-ai-workshop-daje-odgovore-upravo-na-ova-pitanja---a-odgovore-ćete-dobiti-od-čoveka-koji-uspešno-vodi-ai-timove-u-međunarodnim-startapima-na-evropskoj-data-scienceml-sceni-je-više-od-deset-godina-i-monetizuje-ai-tehnologije-od-kako-su-se-savremene-generativne-ai-poput-chatgpt-uopšte-pojavile."
+class="section level3">
+<h3>Šta treba da znamo o AI tehnologijama da bismo pokrenuli biznis sa
+njima, unapredili već postojeće poslovanje, ili ih maksimalno
+iskoristili u našem svakodnevnom radu? <strong>DataKolektiv AI Workshop
+daje odgovore upravo na ova pitanja - a odgovore ćete dobiti od <a
+href="https://www.linkedin.com/in/gmilovanovic/">čoveka koji uspešno
+vodi AI timove u međunarodnim startapima, na evropskoj Data Science/ML
+sceni je više od deset godina, i monetizuje AI tehnologije od kako su se
+savremene generativne AI poput ChatGPT uopšte
+pojavile.</a></strong></h3>
+</div>
+<div id="ciljevi-radionice-šta-će-učesnici-naučiti"
+class="section level3">
+<h3>Ciljevi radionice: šta će učesnici naučiti</h3>
+<p>Posle radionice, učesnici će će</p>
+<ul>
+<li>biti u stanju da razviju svoje biznis ideje bazirane na AI
+tehnologijama,</li>
+<li>razumejući dobro sve povezane poslovne rizike,</li>
+<li>razumejući regulativu i potencijalna ograničenja,</li>
+<li>razumejući odnose na tržištu kako bi pronašli nišu u kojoj njihova
+ideja može da radi;</li>
+<li>biće u stanju da sami koriste efikasno i kompetentno AI sisteme u
+svom radu zahvaljujući poznavanju veštine prompt engineering-a;</li>
+<li>biće u stanju da unaprede svoje trenutno poslovanje inteligentnom i
+efikasnom primenom AI tehnologija u postojećim procesima.</li>
+</ul>
+<p><strong>Radionica pokriva četiri celine:</strong></p>
+<ul>
+<li>razumevanje principa na kojima počivaju AI tehnologije,</li>
+<li>analiza tržišta odn. ponude i potražnje na AI tržištu,</li>
+<li>biznis modeli za AI proizvode i projekte,</li>
+<li>praktične veštine (Prompt Engineering) u upotrebi AI u poslovanju i
+radu.</li>
+</ul>
+<p>Tokom radionice formulisaćemo jedan business case i simulirati njegov
+razvoj. Ta simulacija se proteže kroz sve sesije radionice i prati naš
+celokupan rad kao materijal za neposrednu demonstraciju znanja i veština
+koja će polaznici sticati.</p>
+<p>Posebna pažnja će biti posvećena regulaciji AI sistema, pošto će u
+bliskoj budućnosti regulatorni okviri za AI svakako biti nešto bez čega
+poslovni razvoji neće biti mogući, sa naglaskom <a
+href="https://artificialintelligenceact.eu/">AI Act</a> Evropske
+unije.</p>
+<p>Postoji opciona, peta celina i sesija, za one koji znaju malo Python
+i interesuje ih da nauče da koriste generativne AI kroz API (OpenAI,
+Anthropic, DeepSeek…).</p>
+</div>
+<div id="kako-radimo-na-ovoj-radionici" class="section level2">
+<h2><strong>Kako radimo na ovoj radionici?</strong></h2>
+<ul>
+<li>Vidimo se u <strong>online</strong> na četiri (4) sesije u trajanju
+2h - 2h30’ svaka;</li>
+<li>Sesije se organizuju 16. aprila, 23. aprila, 30. aprila, i 7. maja,
+sa početkom u 18h;</li>
+<li>posle svake sesije nastavljamo <strong>asinhrono, online, na
+platformi Slack</strong> gde će biti formiran poseban kanal za ovu
+radionicu, i gde narednih nedelju dana imate poptuno besplatnu,
+real-time podršku za sva pitanja koja ćete imati ili use-cases koje
+testirate;</li>
+<li>biće podeljeni <strong>detaljni materijali za učenje, diskusiju i
+dalji razvoj</strong>;</li>
+<li>ko se opredeli i da malo programira u Python sa nama, <strong>dobija
+tri elaborirana Notebook za učenje automatizacije Prompt Engineering
+kroz OpenAI GPT klasu modela</strong>.</li>
+</ul>
+<hr />
+</div>
+<div id="ograničen-broj-polaznika-i-personalizacija"
+class="section level2">
+<h2><strong>[!!!]Ograničen broj polaznika i
+personalizacija</strong></h2>
+<p>DataKolektiv <strong>nikada</strong> ne radi sa velikim brojem
+polaznika, zato što tokom učešća na našim radionicama i kursevima
+<strong>personalizujemo rad prema vašim potrebama!</strong> To garantuje
+da ćete sa nama provesti dovoljno vremena u radu i moći da diskutujete
+uživo i online <strong>baš sva pitanja koja budete imali</strong>,
+razmenite ideje sa nama - i čak kodirate zajedno sa nama ukoliko želite
+u pair-programming sesijama. <strong>Po završteku radionice mi ćemo vam
+stajati na raspolaganju za besplatne online konsultacije narednih 7
+dana</strong>, za sva pitanja koja ćete imati ili use-cases koje biste
+želeli da testirate. <strong>DataKolektiv radi već godinama po ovoj
+metodologiji i to nam omogućava da se svakom polazniku posvetimo
+maksimalno i precizno u skladu sa njegovim potrebama!</strong></p>
+<hr />
+</div>
+<div id="predavač" class="section level2">
+<h2><strong>Predavač</strong></h2>
+<p><img src="gsm_round_175px.png" /></p>
+<p><a href="https://www.linkedin.com/in/gmilovanovic/">Dr Goran S.
+Milovanović</a>, Chief AI Officer, <a href="">smartocto</a>, vlasnik <a
+href="https://datakolektiv.com/">DataKolektiv</a>. Studirao matematiku,
+filozofiju, i psihologiju, na Beogradskom i Njujorškom (NYU)
+univerzitetu, doktorirao psihologiju. Programer od svoje desete godine,
+objavio prvi naučni rad sa dvadeset godina, sarađivao sa vrhunskim
+kognitivnim naučnicima i objavljivao radove citirane u <em>Stevens’
+Handbook of Experimental Psychology</em>. Višegodišnje iskustvo u
+analitici i mašinskom učenju na nekim od najvećih sistema podataka u
+svetu (Wikidata), član programskih odbora evropskih konferencija u Data
+Science. Kao individualni konsultant, u saradnji sa američkim edu
+startups, i sa DataKolektiv obrazovao je desetine ljudi za rad u Data
+Science i ML. U biznisu analitike od 90-ih, kroz sve faze koje je prošla
+od Quantitative Analytics, Data Mining, Data Science, ML, do AI. Osim
+što vodi DataKolektiv, on je Chief AI Officer u Smartocto gde vodi
+Data/LABS tim i razvija sve ML i AI projekte u ovom holandsko-srpskom
+startapu.</p>
+<hr />
+</div>
+<div id="šta-nosimo-kući" class="section level2">
+<h2><strong>Šta nosimo kući?</strong></h2>
+<p>Biće podeljeni kompletni materijali sa radionice, uključujući:</p>
+<ul>
+<li>Uvod u generativnu AI (slide-deck)</li>
+<li>Konceptualni pregled arhitekture GPT modela (slide-deck)</li>
+<li>Pregled svih postojećih OpenAI i Anthropic modela, objašnjenja
+njihove primene (HTML Notebook)</li>
+<li>Pregled biznis modela u AI tehnologijama</li>
+<li>Kompletna analiza trenutnog stanja tržišta u AI</li>
+<li>Detaljan Prompt Engineering trening (praktično sve što se o Prompt
+Engineering danas uopšte zna, HTML Notebook)</li>
+<li>Kompletan pregled postojećih online resursa za Prompt Engineering,
+od uvodnih do ekspertskih materijala (HTML Notebook)</li>
+<li>Kompletne Reading i Video liste za dalji rad i učenje (HTML
+Notebook)</li>
+<li>Kompletna tri Notebook u Python za obuku u radu sa OpenAI API
+(Jupyter Notebook)</li>
+</ul>
+<hr />
+</div>
+<div id="cena" class="section level2">
+<h2><strong>Cena</strong></h2>
+<p>Cena je <strong>400€</strong> u dinarskoj protivvrednosti, a postoji
+popust od 10% za grupe polaznika (dve i više prijave već čine grupu
+polaznika; napomenite u vašim prijavama da se prijavljujete kao
+grupa).</p>
+<hr />
+</div>
+<div id="prijava" class="section level2">
+<h2><strong>Prijava</strong></h2>
+<div id="prijavite-se-na-ai-workshop-april-2025-2"
+class="section level3">
+<h3><strong>🚀 Prijavite se na <a
+href="https://forms.gle/RAQxDkwnZzu71F2r8">AI Workshop April
+2025</a></strong></h3>
+</div>
+</div>
+</div>
+
+<hr>
+<p style="text-align:center;">
+  <img src="DK_Logo_White_150.png">
+</p>
+<p style="font-size:13px;text-align:center;">
+  <b>Contact: </b><a href = "mailto: hello@datakolektiv.com">hello@datakolektiv.com</a><br><br><a href="https://github.com/datakolektiv"><img src="github.png"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/company/datakolektiv/"><img src="linkedin.png"></a>
+</p>
+<p style="font-size:11px;text-align:center;"><b>Impressum</b><br>
+<b>Goran Milovanovic PR Data Kolektiv</b>, Breza 4/7, ČUKARICA-BEOGRAD<br>11000 Beograd, Republika Srbija, ID(APR):64498339, TIN:109890695
+</p>
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
