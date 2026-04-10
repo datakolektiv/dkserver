@@ -252,22 +252,22 @@ $(document).ready(function () {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="consulting.html">Consulting</a>
+  <a href="AIAnalystLAB.html">AI Analyst LAB</a>
 </li>
 <li>
-  <a href="courses.html">Training</a>
+  <a href="DecisionIntelligence.html">Decision Intelligence LAB</a>
+</li>
+<li>
+  <a href="AITransformation.html">AI Transformation LAB</a>
 </li>
 <li>
   <a href="research.html">Research</a>
 </li>
 <li>
-  <a href="contact.html">Contact</a>
-</li>
-<li>
   <a href="about.html">About</a>
 </li>
 <li>
-  <a href="media.html">Media</a>
+  <a href="contact.html">Contact</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -290,22 +290,57 @@ $(document).ready(function () {
 src="github.png" /></a>  <a
 href="https://www.linkedin.com/company/datakolektiv/"><img
 src="linkedin.png" /></a></p>
-<div id="we-are-listening-at-hellodatakolektiv.com."
-class="section level2">
-<h2>We are listening at <a
-href="mailto:hello@datakolektiv.com">hello@datakolektiv.com</a>.</h2>
-</div>
-<div id="all-inquiries-will-be-answered-in-no-more-than-24h."
-class="section level2">
-<h2>All inquiries will be answered in no more than 24h.</h2>
-<center>
-<p><a href="mailto:hello@datakolektiv.com"><img
-src="dkserver_consulting.jpg" /></a></p>
-</center>
-<p>We are passionate readers, so please go ahead and explain your
-business problem or present your interest in our courses by writing
-<em>in extenso</em>.</p>
-</div>
+<style>
+.contact-form {
+  max-width: 560px;
+  margin: 2rem 0;
+  font-family: inherit;
+}
+.contact-form label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+  color: #333;
+}
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  width: 100%;
+  padding: 0.5rem 0.7rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+.contact-form textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+.contact-form button {
+  background-color: #2a2a2a;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.6rem;
+  font-size: 0.95rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.contact-form button:hover {
+  background-color: #444;
+}
+</style>
+<form class="contact-form" action="https://formspree.io/f/xwvwdzqe" method="POST">
+<p><input type="hidden" name="_subject" value="New message from your website"></p>
+<p><label for="name">Name</label>
+<input type="text" id="name" name="name" placeholder="Your name" required></p>
+<p><label for="email">Email</label>
+<input type="email" id="email" name="email" placeholder="Your email" required></p>
+<label for="message">Message</label>
+<textarea id="message" name="message" placeholder="Your message" required></textarea>
+<button type="submit">Send</button>
+</form>
 
 <hr>
 <p style="text-align:center;">
