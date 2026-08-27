@@ -252,14 +252,38 @@ $(document).ready(function () {
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li>
-  <a href="AIAnalystLAB.html">AI Analyst LAB</a>
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    AI Transformation
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="AI_Marathon.html">AI Marathon</a>
+    </li>
+    <li>
+      <a href="AI_Sprint.html">AI Sprint</a>
+    </li>
+    <li>
+      <a href="AI_Hackathon.html">AI Hackathon</a>
+    </li>
+  </ul>
 </li>
-<li>
-  <a href="DecisionIntelligence.html">Decision Intelligence LAB</a>
-</li>
-<li>
-  <a href="AITransformation.html">AI Transformation LAB</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    LABS
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="AIAnalystLAB.html">AI Analyst LAB</a>
+    </li>
+    <li>
+      <a href="DecisionIntelligence.html">Decision Intelligence LAB</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="about.html">About</a>
@@ -284,6 +308,12 @@ $(document).ready(function () {
 </div>
 
 
+<p class="contact-intro">
+<i>If you would like to enroll your team or organization in one of our
+AI Transformation programs (AI Marathon, AI Sprint, or AI Hackathon),
+please briefly describe your specific needs and the size of your
+team/organization.</i>
+</p>
 <p>Connect with <a
 href="https://www.linkedin.com/in/gmilovanovic/">Goran S.
 Milovanovic</a> on LinkedIn:</p>
@@ -291,8 +321,11 @@ Milovanovic</a> on LinkedIn:</p>
 src="linkedin.png" /></a></p>
 <p>or send a message directly to our inbox:</p>
 <style>
+.contact-intro,
 .contact-form {
   max-width: 560px;
+}
+.contact-form {
   margin: 2rem 0;
   font-family: inherit;
 }
