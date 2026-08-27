@@ -1,0 +1,23 @@
+name: "DATA KOLEKTIV SERVER"
+exclude: ["renv.lock"]
+navbar:
+  title: "<img id=\"logo\" style=\"width: 30px;\" src=\"DK_Logo_White_NoTitle_25.png\" />"
+  left:
+    - text: "AI Analyst LAB"
+      href: AIAnalystLAB.html
+    - text: "Decision Intelligence LAB"
+      href: DecisionIntelligence.html
+    - text: "AI Transformation LAB"
+      href: AITransformation.html
+    - text: "About"
+      href: about.html
+    - text: "Contact"
+      href: contact.html
+
+output:
+  html_document:
+    includes:
+         in_header: [ga4.html, header.html]
+         after_body: footer.html
+    theme: cosmo
+    highlight: textmate

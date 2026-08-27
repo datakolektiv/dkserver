@@ -1,0 +1,43 @@
+---
+title: "Consulting"
+---
+
+[![](github.png)](https://github.com/datakolektiv)&nbsp;&nbsp;[![](linkedin.png)](https://www.linkedin.com/company/datakolektiv/)
+
+**If you are looking for consulting, research, or development services, get in touch immediately by writing to [hello@datakolektiv.com](mailto:hello@datakolektiv.com) about your needs. Ali inquiries will be processed and answered in no more than 24h. Thank you.**
+
+[![](01_think_together_dkserver.png)](consulting.html)
+
+### What is in the store
+
+We are specialized in and have an extensive, immediate experience in the solving any of the following problems:
+
+- **Predictive Analytics**: we provide predictive analytics models in various business contexts and use cases;
+- **Exploratory Analytics**: understanding the most important **"why"** question from your data and business processes;
+- **Market/Business Analytics**: customer segmentation, survey data analysis, churn prediction, choice analysis/Generalized Linear Models, behavioral choice under risk and uncertainty;
+- **Social Media Analytics**: scoring, user segmentation, network analysis;
+- **Information Retrieval**: NLP, recommendation engines, knowledge extraction, automatic semantic tagging, search engines, embedding models, topic models.
+
+We never go for off-the-shelf solutions immediately. Every new business problem is assessed as a unique case and the choice of the appropriate tech stack is suggested along the lines of that initial analysis.
+
+### Roadmap
+
+- In a typical context, we would first ask to perform a **pilot study** and develop a **prototype** of the solution; pricing in this phase is flexible and depends upon the particulary details of the business problem under consideration. 
+- This can be done with a limited amount of data and always includes an **introductory workshop** with the client. 
+- If the the pilot study shows that a feasible, approximate solution to the problem is possible, and if the following discussion with the client reaches an agreement that the prospects for a full-scale solution are good, 
+- only then we will propose a **strategy roadmap** to the client including the description of all development phases, the planned tech stack, the timeline, and the specific related costs.
+
+### Track Record
+
+- We have provided full-stack Data Engineering and Data Science services for Wikidata, where our work encompassed the development of a whole new analytics stack across one the largest Big Data infrastructures available at all.
+
+- We have provided consulting services in business processes optimization the one of the top five (in terms of total assets) ranked banking institutions in Switzerland. 
+
+- We have provided consulting services to top tech driven global market research agencies. 
+
+- We have trained dozens of experts in Data Analytics, Data Science, and Machine Learning, in the local and Western European market.
+
+- We have trained dozens in AI development since the onset of the Generative AI systems, being among the first consultancies to enter the game.  
+
+[Get in touch](contact.html) with us to describe your needs and learn what we can do for you.
+

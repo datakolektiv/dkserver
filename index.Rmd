@@ -1,0 +1,27 @@
+---
+title: "AI, Decisions, and Data"
+---
+
+
+![](DK_Logo_400.png)
+
+#### We are an AI, Decisions, and Data consultancy. The revolution is imminent.
+## AI LABS with DataKolektiv
+
+[![](linkedin.png)](https://www.linkedin.com/in/gmilovanovic/)
+
+<br>
+
+[![](AI_AnalystLAB.png)](AIAnalystLAB.html) 
+
+<br>
+<br>
+
+[![](DecisionIntelligenceLAB.png)](DecisionIntelligence.html) 
+
+<br>
+<br>
+
+[![](AI_TransformationLAB.png)](AITransformation.html) 
+
+<br>

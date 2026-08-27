@@ -1,0 +1,118 @@
+---
+title: "Impressum"
+---
+
+[![](linkedin.png)](https://www.linkedin.com/in/gmilovanovic/)
+
+## ENGLISH
+
+### Legal Notice
+
+**Business name:** Goran Milovanović PR Data Kolektiv  
+**Address:** Breza 4/7, Čukarica – Beograd, 11000 Belgrade, Serbia  
+**Business ID (APR):** 64498339  
+**Tax ID (PIB):** 109890695  
+
+**Contact:**  
+Email: hello@datakolektiv.com  
+
+---
+
+### About
+
+DataKolektiv provides consulting, research, and training services in Data Science, Machine Learning, Artificial Intelligence, and Analytics.
+
+---
+
+### Data Protection (Privacy)
+
+We respect your privacy and handle personal data in a minimal and responsible manner.
+
+**What data we collect:**
+- Name and email (when you contact us)
+- Any information you voluntarily provide
+
+**Purpose:**
+- Communication
+- Providing services
+- Responding to inquiries
+
+**Legal basis:**
+- Legitimate interest
+- Pre-contractual communication or contract
+
+**Data storage:**
+- Data is stored only as long as necessary for communication or legal obligations
+
+**Data sharing:**
+- We do not sell or share your personal data with third parties, unless required by law
+
+**Your rights:**
+You have the right to request access, correction, or deletion of your personal data at any time.
+
+**Contact for data protection:**
+goran.milovanovic@datakolektiv.com
+
+---
+
+### Disclaimer
+
+The content of this website is provided for general information purposes only. While we strive for accuracy, we make no guarantees regarding completeness or reliability.
+
+---
+
+## SRPSKI
+
+### Podaci o preduzetniku
+
+**Poslovno ime:** Goran Milovanović PR Data Kolektiv  
+**Adresa:** Breza 4/7, Čukarica – Beograd, 11000 Beograd, Srbija  
+**Matični broj (APR):** 64498339  
+**PIB:** 109890695  
+
+**Kontakt:**  
+Email: hello@datakolektiv.com  
+
+---
+
+### Delatnost
+
+DataKolektiv pruža konsultantske, istraživačke i edukativne usluge u oblastima Data Science, Machine Learning, veštačke inteligencije i analitike.
+
+---
+
+### Zaštita podataka o ličnosti
+
+Poštujemo vašu privatnost i obrađujemo podatke u minimalnom obimu i odgovorno.
+
+**Koje podatke prikupljamo:**
+- Ime i email (kada nas kontaktirate)
+- Podatke koje dobrovoljno dostavite
+
+**Svrha obrade:**
+- Komunikacija
+- Pružanje usluga
+- Odgovaranje na upite
+
+**Pravni osnov:**
+- Legitimni interes
+- Predugovorni odnos ili ugovor
+
+**Čuvanje podataka:**
+- Podaci se čuvaju samo onoliko dugo koliko je potrebno za komunikaciju ili zakonske obaveze
+
+**Deljenje podataka:**
+- Ne prodajemo niti delimo podatke sa trećim licima, osim ako to nalaže zakon
+
+**Vaša prava:**
+Imate pravo na pristup, ispravku ili brisanje svojih podataka u bilo kom trenutku.
+
+**Kontakt za zaštitu podataka:**
+goran.milovanovic@datakolektiv.com
+
+---
+
+### Odricanje od odgovornosti
+
+Sadržaj ovog sajta služi isključivo u informativne svrhe. Ne garantujemo potpunost ili tačnost informacija.
+
